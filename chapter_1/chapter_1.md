@@ -11,10 +11,20 @@ Notes on Abelson and Sussman, [*Structure and Interpretation of Computer Program
 
 ---
 
-### 1. Building Abstractions with Procedures
+## 1. Building Abstractions with Procedures
 
-#### 1.1 The Elements of Programming
+* Target of study: **computational processes** (1)
 
-#### 1.2 Procedures and the Processes They Generate
+  * intuition: "Computational processes are abstract beings that inhabit computers" (1)
 
-#### 1.3 Formulating Abstractions with Higher-Order Procedures
+* Processes manipulate **data** (1)
+
+* Evolution of a process is directed by a pattern of rules called a **program** (2)
+
+* An upshot: "**People create programs to direct processes**" (2)
+
+### 1.1 The Elements of Programming
+
+### 1.2 Procedures and the Processes They Generate
+
+### 1.3 Formulating Abstractions with Higher-Order Procedures
