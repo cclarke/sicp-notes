@@ -50,6 +50,8 @@ July 2019
 
   > If Lisp is not a mainstream language, why are we using it as the framework for our discussion of programming? Because the language possesses unique features that make it an excellent medium for studying important programming constructs and data structures for relating them to the linguistic features that support them. **The most significant of these features is the fact that Lisp descriptions of processes, called _procedures_, can themselves be represented and manipulated as Lisp data**. The importance of this is that there are powerful program-design techniques that rely on the ability to **blur the traditional distinction between "passive" data and "active" processes**.
 
+  * The above facts make Lisp bood at writing programs that **manipulate other programs as data** (like interpreters and compilers)
+
 ### 1.1 The Elements of Programming
 
 ### 1.2 Procedures and the Processes They Generate
