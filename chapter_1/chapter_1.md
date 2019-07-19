@@ -203,7 +203,49 @@ July 2019
 
 #### 1.1.4 Compound Procedures (pp. 15-18)
 
-* [TODO]
+* Elements that Lisp has, that must appear in any "powerful" programming language (15)
+
+  > * Numbers and arithmetic operations are primitive data and procedures
+  >
+  > * Nesting of combinations provides a means of combining operations
+  >
+  > * Definitions that associate names with values provide a limited means of abstraction
+
+* This section focuses on **procedure definitions**, which are... (15)
+
+  > [...] a much more powerful abstraction technique by which a **compound operation can be given a name and then referred to as a unit**.
+
+* Example: the "squaring" operation (16)
+
+  ```scheme
+  (define (square x) (* x x))
+  ```
+
+  * Could read/understand this as: "To (`define`) square (`square`) something (`x`), multiply (`*`) it (`x`) by itself (`x`)"
+
+    * Interesting description (16)
+
+      > The thing to be multiplied is given a local name, `x`, which plays the same role that a pronoun plays in natural language.
+
+  * This is an example of a **compound procedure** (16)
+
+    > Evaluating the definition creates this compound procedure and associates it with the name `square`.
+
+* General form of a procedure definition (16-7)
+
+  ```
+  (define ([name] [formal parameters]) [body])
+  ```
+
+  * `[name]` is a symbol to be associated with the procedure definition in the environment
+
+  * `[formal parameters]` are the names used within the body of the procedure to refer to the corresponding arguments of the procedure
+
+  * `[body]` is an expression that will yield the value of the procedure application when the formal parameters are replaced by the actual arguments to which the procedure is applied
+
+    * `[body]` could also include names of procedures that have already been defined—e.g., we could use `square`, which we defined above, as a building block to define a `sum-of-squares` procedure (this example is given in the book)
+
+    * In general, `[body]` can be a sequence of expressions (17n14)
 
 #### 1.1.5 The Substitution Model for Procedure Application (pp. 18-22)
 
