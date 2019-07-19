@@ -249,7 +249,54 @@ July 2019
 
 #### 1.1.5 The Substitution Model for Procedure Application (pp. 18-22)
 
-* [TODO]
+* Evaluating a combination whose operator names a _compound_ procedure is similar to evaluating a combination whose operator is a _primitive_ procedure (18)
+
+  > That is, the interpreter evaluates the elements of the combination and applies the procedure (which is the value of the operator of the combination) to the arguments (which are the values of the operands of the combination).
+
+* **Application process for compound procedures** (18)
+
+  > To apply a compound procedure to arguments, evaluate the body of the procedure with each formal parameter replaced by the corresponding argument.
+
+  * (We assume that the mechanism for applying primitive procedures to arguments is built into the interpreter)
+
+
+* **substitution model** for procedure application (18-9)
+
+  * An overview from the example given in the book (19)
+
+    > Evaluating this combination [the one in the example in the book] involves three subproblems. We must evaluate the operator to get the procedure to be applied, and we must evaluate the operands to get the arguments.
+
+  * The substitution model can be thought of as a model that determines the "meaning" of procedure application—but it's **not the whole (or accurate) story**; it's just a helpful way to think about procedure application (19)
+
+    * **Two points** to stress here (19-20)
+
+      1. Typical interpreters do not actually evaluate procedure applications by manipulating the text of a procedure to substitute values for formal parameters; in practice this happens using a **local environment** for the formal parameters
+
+      2. The substitution model is relatively simple, but it doesn't correctly model all that we'll eventually need to model; in particular, the substitution model breaks down when we try to use procedures with "mutable data" (this will be addressed in Chapter 3)
+
+##### Applicative order versus normal order (20-22)
+
+* The intuition behind **normal-order evaluation**: **"fully expand and then reduce"** (21)
+
+  * i.e., first substitute operand expressions for parameters until there are only primitive operators, and then perform evaluation
+
+* This stands in contrast to the **applicative-order evaluation**, which says: **"evaluate the arguments and then apply"** (21)
+
+  * This is the kind of evaluation we've discussed in previous sections
+
+* **Lisp uses applicative-order evaluation** (21)
+
+* A claim about an equivalence result for normal-order evaluation and applicative-order evaluation, under certain conditions (21)
+
+  > It can be shown that, for procedure applications that can be modeled using substitution (including all the procedures in the first two chapters of this book) and that yield legitimate values, **normal-order and applicative-order evaluation produce the same value**.
+
+* Reasons why Lisp uses applicative-order evaluation (21-2)
+
+  * Partly because of the additional efficiency obtained from avoiding multiple evaluations of expressions
+
+  * More significantly—normal-order evaluation becomes much more complicated to deal with when considering procedures that can't be modeled using substitution
+
+  * (Even given these reasons, normal-order evaluation can be a valuable tool. More on this in Chapters 3 and 4.)
 
 #### 1.1.6 Conditional Expressions and Predicates (pp. 22-27)
 
