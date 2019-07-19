@@ -81,19 +81,35 @@ July 2019
 
 #### 1.1.1 Expressions
 
+* [TODO]
+
 #### 1.1.2 Naming and the Environment
+
+* [TODO]
 
 #### 1.1.3 Evaluating Combinations
 
+* [TODO]
+
 #### 1.1.4 Compound Procedures
+
+* [TODO]
 
 #### 1.1.5 The Substitution Model for Procedure Application
 
+* [TODO]
+
 #### 1.1.6 Conditional Expressions and Predicates
+
+* [TODO]
 
 #### 1.1.7 Example: Square Roots by Newton's Method
 
+* [TODO]
+
 #### 1.1.8 Procedures as Black-Box Abstractions
+
+* [TODO]
 
 
 
