@@ -153,7 +153,53 @@ July 2019
 
 #### 1.1.3 Evaluating Combinations (pp. 12-15)
 
-* [TODO]
+* The interpreter itself is following a **procedure** when it evaluates combinations (12)
+
+  > To evaluate a combination, do the following:
+  1. Evaluate the subexpression of the combination.
+  2. Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
+
+* Important points about processes in general, that are illustrated by the above example (12-14)
+
+  * The evaluation rule is **recursive**: the first step above tells us to _recursively_ evaluate the evaluation process on each element of a given combination (12)
+
+    * Can think of this recursive evaluation process as a process of **tree accumulation** (where the tree structure is implied by the nested structure of the combinations)—the **values of the operands "percolate upward"**
+
+  * repeated application of the first step in the evaluation rule brings us to the point where we need to evaluate **primitive expressions** (14)
+
+    * examples of primitive expressions are numerals, built-in operators, and other names
+
+    * Rules for handling primitive cases (14)
+
+      > We take care of the primitive cases by stipulating that
+      * the values of numerals are the numbers that they name,
+      * the values of built-in operators are the machine instruction sequences that carry out the corresponding operations, and
+      * the values of other names are the objects associate with those names in the environment.
+
+    * A note about the relationship between meaning of symbols in expressions and the _environment_ (14)
+
+      > We may regard the second rule [from the rules for handling primitive cases, above] as a special case of the third one by stipulating that symbols such as `+` and `*` are also included in the global environment, and are associated with the sequences of machine instructions that are their "values." **The key point to notice is the role of the environment in determining the meaning of the symbols in expressions**. In an interactive programming language such as Lisp, it is meaningless to speak of the value of an expression such as `(+ x 1)` without specifying any information about the environment that would provide a meaning for the symbol `x` (or even for the symbol `+`).
+
+  * The evaluation rule does not handle definitions (14)
+
+    * Corollary: `(define x 3)`, for example, is not a combination
+
+* Exceptions to the general evaluation rule are called **special forms** (14)
+
+  * Each special form has its own evaluation rule
+
+* Note about **syntax** of the programming language (14-5)
+
+  > The various kinds of expressions (each with its associated evaluation rule) constitute the syntax of the programming language.
+
+* Lisp's syntax is simple relative to other programming languages' syntaxes (15)
+
+  > [In Lisp], the evaluation rule for expressions can be described by as simple general rule together with specialized rules for a small number of special forms.
+
+* A note here also about ***syntactic sugar*** (15n11)
+
+  > Special syntactic forms that are simply convenient alternative surface structures for things that can be written in more uniform ways are sometimes called _syntactic sugar_, to use a phrase coined by Peter Landin.
+
 
 #### 1.1.4 Compound Procedures (pp. 15-18)
 
