@@ -54,6 +54,33 @@ July 2019
 
 ### 1.1 The Elements of Programming
 
+* A powerful programming language can be used as: (6)
+
+  * a means for instructing a computer to perform tasks
+  * a framework within which we organize our ideas about processes
+
+* Combining simple ideas into complex ideas (6)
+
+  > [...] when we describe a language, we should **pay particular attention to the means that the language provides for combining simple ideas to form more complex ideas**.
+
+  * Three mechanisms for doing this
+
+    1. **Primitive expressions**, which represent the simplest entities the language is concerned with
+
+    2. **Means of combination**, by which compound elements are built from simpler ones
+
+    3. **Means of abstraction**, by which compound elements can be named and manipulated as units
+
+* Two kinds of elements in programming: **procedures** and **data** (6)
+
+  * Data is the "stuff" that we manipulate; procedures are the rules for manipulating the data
+
+* An upshot: (6)
+
+  > [...] any powerful programming language should be able to describe primitive data and primitive procedures and should have methods for combining and abstracting procedures and data.
+
+
+
 ### 1.2 Procedures and the Processes They Generate
 
 ### 1.3 Formulating Abstractions with Higher-Order Procedures
