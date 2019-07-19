@@ -134,7 +134,7 @@ July 2019
 
   > We say that the name identifies a _variable_ whose _value_ is the object.
 
-* Lisp uses `define` to name things
+* The Scheme dialect of Lisp uses `define` to name things
 
   * e.g.,
   ```scheme
