@@ -107,18 +107,24 @@ July 2019
 
       * e.g., `(+ (* 3 5) (- 10 6))`, which evaluates to `19`
 
-      * might think to use a _pretty-printing_ convention if you have lots of nested things, like
-      ```
-      (+ (* 3
-            (+ (* 2 4)
-               (+ 3 5)))
-         (+ (- 10 7)
-            6))
-      ```
-      instead of
-      ```
-      (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))
-      ```
+      * might think to use a _pretty-printing_ convention—where each long combination is written so that the operands are aligned vertically—if you have lots of nested things, like
+        ```
+        (+ (* 3
+              (+ (* 2 4)
+                 (+ 3 5)))
+           (+ (- 10 7)
+              6))
+        ```
+        instead of
+        ```
+        (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))
+        ```
+
+* Scheme interpreter runs in a **REPL** (_read-eval-print loop_)
+
+  * Interesting note here (10)
+
+    > Observe in particular that it is not necessary to explicitly instruct the interpreter to print the value of the expression.
 
 
 
