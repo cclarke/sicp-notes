@@ -134,12 +134,22 @@ July 2019
 
   > We say that the name identifies a _variable_ whose _value_ is the object.
 
-* The Scheme dialect of Lisp uses `define` to name things
+* The Scheme dialect of Lisp uses `define` to name things (10)
 
   * e.g.,
   ```scheme
   (define size 2)
   ```
+
+* `define` is Scheme's **simplest means of abstraction**, since it lets us to use simple names to refer to the results of compound operations (11)
+
+* An upshot (11)
+
+  > [...] complex programs are constructed by building, step by step, computational objects of increasing complexity.
+
+* In order to associate values with symbols, need to have some sort of memory that keeps track of the name object pairs (11)
+
+  * This memory is called the **environment** (more precisely, the **global environment** in this specific case)
 
 #### 1.1.3 Evaluating Combinations (pp. 12-15)
 
