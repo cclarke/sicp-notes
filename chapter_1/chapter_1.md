@@ -81,7 +81,46 @@ July 2019
 
 #### 1.1.1 Expressions
 
-* [TODO]
+* An initial framing (7)
+
+  > Imagine that you are sitting at a computer terminal. You type an _expression_, and the interpreter responds by displaying the result of its _evaluating_ that expression.
+
+* Some vocab (8)
+
+  * **combinations**: expressions formed by delimiting a list of expressions within parentheses, in order to denote procedure application
+
+  * **operator**: leftmost element in the list
+
+  * **operand**: other elements in the list than the operator
+
+  * **argument**: "The value of a combination is obtained by applying the procedure specified by the operator to the _arguments_ that are the values of the operands"
+
+* Scheme uses **prefix notation**: operator to the left of the operands (8)
+
+  * Advantages of prefix notation (8-9)
+
+    * can accommodate procedures that may take an arbitrary number of arguments
+
+      * e.g., `(+ 21 35 12 7 5 6)`, which evaluates to `86`
+
+    * extends in a straightforward way to allow combinations to be _nested_, i.e., combinations themselves can have combinations as elements
+
+      * e.g., `(+ (* 3 5) (- 10 6))`, which evaluates to `19`
+
+      * might think to use a _pretty-printing_ convention if you have lots of nested things, like
+      ```
+      (+ (* 3
+            (+ (* 2 4)
+               (+ 3 5)))
+         (+ (- 10 7)
+            6))
+      ```
+      instead of
+      ```
+      (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))
+      ```
+
+
 
 #### 1.1.2 Naming and the Environment
 
