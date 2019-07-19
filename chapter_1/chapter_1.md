@@ -12,7 +12,7 @@ July 2019
 
 ---
 
-## 1. Building Abstractions with Procedures
+## 1. Building Abstractions with Procedures (pp. 1-106)
 
 * Target of study: **computational processes** (1)
 
@@ -52,7 +52,7 @@ July 2019
 
   * The above facts make Lisp good at writing programs that **manipulate other programs as data** (like interpreters and compilers)
 
-### 1.1 The Elements of Programming
+### 1.1 The Elements of Programming (pp. 6-39)
 
 * A powerful programming language can be used as: (6)
 
@@ -79,7 +79,7 @@ July 2019
 
   > [...] any powerful programming language should be able to describe primitive data and primitive procedures and should have methods for combining and abstracting procedures and data.
 
-#### 1.1.1 Expressions
+#### 1.1.1 Expressions (pp. 7-10)
 
 * An initial framing (7)
 
@@ -128,36 +128,36 @@ July 2019
 
 
 
-#### 1.1.2 Naming and the Environment
+#### 1.1.2 Naming and the Environment (pp. 10-12)
 
 * [TODO]
 
-#### 1.1.3 Evaluating Combinations
+#### 1.1.3 Evaluating Combinations (pp. 12-15)
 
 * [TODO]
 
-#### 1.1.4 Compound Procedures
+#### 1.1.4 Compound Procedures (pp. 15-18)
 
 * [TODO]
 
-#### 1.1.5 The Substitution Model for Procedure Application
+#### 1.1.5 The Substitution Model for Procedure Application (pp. 18-22)
 
 * [TODO]
 
-#### 1.1.6 Conditional Expressions and Predicates
+#### 1.1.6 Conditional Expressions and Predicates (pp. 22-27)
 
 * [TODO]
 
-#### 1.1.7 Example: Square Roots by Newton's Method
+#### 1.1.7 Example: Square Roots by Newton's Method (pp. 27-33)
 
 * [TODO]
 
-#### 1.1.8 Procedures as Black-Box Abstractions
+#### 1.1.8 Procedures as Black-Box Abstractions (pp. 33-39)
 
 * [TODO]
 
 
 
-### 1.2 Procedures and the Processes They Generate
+### 1.2 Procedures and the Processes They Generate (pp. 40-74)
 
-### 1.3 Formulating Abstractions with Higher-Order Procedures
+### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
