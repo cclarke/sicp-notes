@@ -156,8 +156,8 @@ July 2019
 * The interpreter itself is following a **procedure** when it evaluates combinations (12)
 
   > To evaluate a combination, do the following:
-  1. Evaluate the subexpression of the combination.
-  2. Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
+  > 1. Evaluate the subexpression of the combination.
+  > 2. Apply the procedure that is the value of the leftmost subexpression (the operator) to the arguments that are the values of the other subexpressions (the operands).
 
 * Important points about processes in general, that are illustrated by the above example (12-14)
 
@@ -172,9 +172,9 @@ July 2019
     * Rules for handling primitive cases (14)
 
       > We take care of the primitive cases by stipulating that
-      * the values of numerals are the numbers that they name,
-      * the values of built-in operators are the machine instruction sequences that carry out the corresponding operations, and
-      * the values of other names are the objects associate with those names in the environment.
+      > * the values of numerals are the numbers that they name,
+      > * the values of built-in operators are the machine instruction sequences that carry out the corresponding operations, and
+      > * the values of other names are the objects associate with those names in the environment.
 
     * A note about the relationship between meaning of symbols in expressions and the _environment_ (14)
 
