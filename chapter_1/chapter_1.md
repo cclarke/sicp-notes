@@ -108,7 +108,7 @@ July 2019
       * e.g., `(+ (* 3 5) (- 10 6))`, which evaluates to `19`
 
       * might think to use a _pretty-printing_ convention—where each long combination is written so that the operands are aligned vertically—if you have lots of nested things, like
-        ```
+        ```scheme
         (+ (* 3
               (+ (* 2 4)
                  (+ 3 5)))
@@ -116,7 +116,7 @@ July 2019
               6))
         ```
         instead of
-        ```
+        ```scheme
         (+ (* 3 (+ (* 2 4) (+ 3 5))) (+ (- 10 7) 6))
         ```
 
@@ -130,7 +130,16 @@ July 2019
 
 #### 1.1.2 Naming and the Environment (pp. 10-12)
 
-* [TODO]
+* **names** to refer to computation objects (10)
+
+  > We say that the name identifies a _variable_ whose _value_ is the object.
+
+* Lisp uses `define` to name things
+
+  * e.g.,
+  ```scheme
+  (define size 2)
+  ```
 
 #### 1.1.3 Evaluating Combinations (pp. 12-15)
 
