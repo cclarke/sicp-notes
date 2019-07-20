@@ -376,193 +376,193 @@ July 2019
 
   *  (`not` is an ordinary procedure, though)
 
-* **Exercises** (26-8)
+**Exercises** (26-8)
 
-  * Exercise 1.1
+* Exercise 1.1
 
-      1. ```scheme
-         10
-         ```
+    1. ```scheme
+       10
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: 10
-         ```
+       ```scheme
+       ;Value: 10
+       ```
 
-      2. ```scheme
-         (+ 5 3 4)
-         ```
+    2. ```scheme
+       (+ 5 3 4)
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: 12
-         ```
+       ```scheme
+       ;Value: 12
+       ```
 
-      3. ```scheme
-         (- 9 1)
-         ```
+    3. ```scheme
+       (- 9 1)
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: 8
-         ```
+       ```scheme
+       ;Value: 8
+       ```
 
-      4. ```scheme
-         (/ 6 2)
-         ```
+    4. ```scheme
+       (/ 6 2)
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: 3
-         ```
+       ```scheme
+       ;Value: 3
+       ```
 
-      5. ```scheme
-         (+ (* 2 4) (- 4 6))
-         ```
+    5. ```scheme
+       (+ (* 2 4) (- 4 6))
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: 6
-         ```
+       ```scheme
+       ;Value: 6
+       ```
 
-      6. ```scheme
-          (define a 3)
-         ```
+    6. ```scheme
+        (define a 3)
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: a
-         ```
+       ```scheme
+       ;Value: a
+       ```
 
-      7. ```scheme
-         (define b (+ a 1))
-         ```
+    7. ```scheme
+       (define b (+ a 1))
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: b
-         ```
+       ```scheme
+       ;Value: b
+       ```
 
-      8. ```scheme
-         (+ a b (* a b))
-         ```
+    8. ```scheme
+       (+ a b (* a b))
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: 19
-         ```
+       ```scheme
+       ;Value: 19
+       ```
 
-      9. ```scheme
-         (= a b)
-         ```
+    9. ```scheme
+       (= a b)
+       ```
 
-         prints
+       prints
 
-         ```scheme
-         ;Value: #f
-         ```
+       ```scheme
+       ;Value: #f
+       ```
 
-      10. ```scheme
-          (if (and (> b a) (< b (* a b)))
-              b
-              a)
-          ```
+    10. ```scheme
+        (if (and (> b a) (< b (* a b)))
+            b
+            a)
+        ```
 
-          prints
+        prints
 
-          ```scheme
-          ;Value: 4
-          ```
+        ```scheme
+        ;Value: 4
+        ```
 
-      11. ```scheme
-          (cond ((= a 4) 6)
-                ((= b 4) (+ 6 7 a))
-                (else 25))
-          ```
+    11. ```scheme
+        (cond ((= a 4) 6)
+              ((= b 4) (+ 6 7 a))
+              (else 25))
+        ```
 
-          prints
+        prints
 
-          ```scheme
-          ;Value: 16
-          ```
+        ```scheme
+        ;Value: 16
+        ```
 
-      12. ```scheme
-          (+ 2 (if (> b a) b a))
-          ```
+    12. ```scheme
+        (+ 2 (if (> b a) b a))
+        ```
 
-          prints
+        prints
 
-          ```scheme
-          ;Value: 6
-          ```
+        ```scheme
+        ;Value: 6
+        ```
 
-      13. ```scheme
-          (* (cond ((> a b) a)
-                   ((< a b) b)
-                   (else -1))
-             (+ a 1))
-          ```
+    13. ```scheme
+        (* (cond ((> a b) a)
+                 ((< a b) b)
+                 (else -1))
+           (+ a 1))
+        ```
 
-          prints
+        prints
 
-          ```scheme
-          ;Value: 16
-          ```
+        ```scheme
+        ;Value: 16
+        ```
 
-  * Exercise 1.2
+* Exercise 1.2
 
-    * ```scheme
-      (/ (+ 5
-            4
-            (- 2
-               (- 3
-                  (+ 6
-                     (/ 4 5)))))
-         (* 3
-            (- 6 2)
-            (- 2 7)))
-      ```
+  * ```scheme
+    (/ (+ 5
+          4
+          (- 2
+             (- 3
+                (+ 6
+                   (/ 4 5)))))
+       (* 3
+          (- 6 2)
+          (- 2 7)))
+    ```
 
-  * Exercise 1.3
+* Exercise 1.3
 
-    * Making use of the `square` and `sum-of-squares` procedures defined earlier in the chapter:
+  * Making use of the `square` and `sum-of-squares` procedures defined earlier in the chapter:
 
-      ```scheme
-      (define (ssq-largest-two-cond a b c)
-              (cond ((and (> a b) (> b c)) (sum-of-squares a b))
-                    ((and (> a b) (> c b)) (sum-of-squares a c))
-                    ((> a c)               (sum-of-squares a b)) ;implicitly, (> b a)
-                    (else                  (sum-of-squares b c))))
-      ```
+    ```scheme
+    (define (ssq-largest-two-cond a b c)
+            (cond ((and (> a b) (> b c)) (sum-of-squares a b))
+                  ((and (> a b) (> c b)) (sum-of-squares a c))
+                  ((> a c)               (sum-of-squares a b)) ;implicitly, (> b a)
+                  (else                  (sum-of-squares b c))))
+    ```
 
-      Could also implement this using `if`:
+    Could also implement this using `if`:
 
-      ```scheme
-      (define (ssq-largest-two-if a b c)
-              (if (> a b)
-                  (if (> b c)
-                      (sum-of-squares a b)
-                      (sum-of-squares a c))
-                  (if (> a c)
-                      (sum-of-squares a b)
-                      (sum-of-squares b c))))
-      ```
+    ```scheme
+    (define (ssq-largest-two-if a b c)
+            (if (> a b)
+                (if (> b c)
+                    (sum-of-squares a b)
+                    (sum-of-squares a c))
+                (if (> a c)
+                    (sum-of-squares a b)
+                    (sum-of-squares b c))))
+    ```
 
-  * Exercise 1.4
+* Exercise 1.4
 
-    * [TODO]
+  * [TODO]
 
-  * Exercise 1.5
+* Exercise 1.5
 
-    * [TODO]
+  * [TODO]
 
 #### 1.1.7 Example: Square Roots by Newton's Method (pp. 28-33)
 
