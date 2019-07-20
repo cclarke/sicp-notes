@@ -579,7 +579,7 @@ July 2019
 
 * Exercise 1.4
 
-  * [TODO]
+  * If the value of `b` is greater than `0`, then the combination `(a-plus-abs-b a b)` will evaluate to the sum of `a` and `b` (i.e., `(+ a b)`). Else, the combination `(a-plus-abs-b a b)` will evaluate to the difference of `a` and `b` (i.e., `(- a b)`).
 
 * Exercise 1.5
 
