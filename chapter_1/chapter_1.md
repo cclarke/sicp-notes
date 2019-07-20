@@ -370,6 +370,33 @@ July 2019
 
     > The value of a `not` expression is true when the expression [`[e]`] evaluates to false, and false otherwise.
 
+* Important: **`and` and `or` are special forms, not procedures** (25)
+
+  * This is because the subexpressions are not necessarily all evaluated with `and` and `or`
+
+  *  (`not` is an ordinary procedure, though)
+
+* **Exercises** (26-8)
+
+  * Exercise 1.1
+
+    * [TODO]
+
+  * Exercise 1.2
+
+    * [TODO]
+
+  * Exercise 1.3
+
+    * [TODO]
+
+  * Exercise 1.4
+
+    * [TODO]
+
+  * Exercise 1.5
+
+    * [TODO]
 
 #### 1.1.7 Example: Square Roots by Newton's Method (pp. 27-33)
 
