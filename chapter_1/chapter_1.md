@@ -398,7 +398,7 @@ July 2019
 
     * [TODO]
 
-#### 1.1.7 Example: Square Roots by Newton's Method (pp. 27-33)
+#### 1.1.7 Example: Square Roots by Newton's Method (pp. 28-33)
 
 * [TODO]
 
