@@ -536,6 +536,17 @@ July 2019
   * Making use of the `square` and `sum-of-squares` procedures defined earlier in the chapter:
 
     ```scheme
+    (define (square x) (* x x))
+
+    (define (sum-of-squares x y)
+      (+ (square x) (square y)))
+    ```
+
+    We can define the desired procedure in a few ways.
+
+    First, using `cond` and tests for strict inequality:
+
+    ```scheme
     (define (ssq-largest-two-cond a b c)
             (cond ((and (> a b) (> b c)) (sum-of-squares a b))
                   ((and (> a b) (> c b)) (sum-of-squares a c))
@@ -554,6 +565,16 @@ July 2019
                 (if (> a c)
                     (sum-of-squares a b)
                     (sum-of-squares b c))))
+    ```
+
+    And finally, making use of the `>=` operator allows us to simplify our case analysis a bit (this solution is based on the one given [here](http://community.schemewiki.org/?sicp-ex-1.3)):
+
+
+    ```scheme
+    (define (ssq-largest-two-cond-geq a b c)
+            (cond ((and (>= a c) (>= b c)) (sum-of-squares a b))
+                  ((and (>= a b) (>= c b)) (sum-of-squares a c))
+                  ((and (>= b a) (>= c a)) (sum-of-squares b c))))
     ```
 
 * Exercise 1.4
