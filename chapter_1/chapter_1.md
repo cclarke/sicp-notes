@@ -300,7 +300,76 @@ July 2019
 
 #### 1.1.6 Conditional Expressions and Predicates (pp. 22-27)
 
-* [TODO]
+* The `cond` construct (short for "conditional") is used for doing **case analysis** in Lisp (22)
+
+  * e.g.,
+
+    ```scheme
+    (define (abs x)
+      (cond ((> x 0) x)
+            ((= x 0) 0)
+            ((< x 0) (- x))))
+    ```
+
+  * general form:
+
+    ```scheme
+    (cond ([p_1] [e_1])
+          ([p_2] [e_2])
+          ([p_3] [e_3])
+          ...
+          ([p_n] [e_n]))
+    ```
+
+  * each of the `([p_i] [e_i])` are called **clauses**; the `[p_i]` are **predicates**, and the `[e_i]` are **consequent expressions** (22)
+
+  * In conditional expressions, the interpreter (informally put) "goes until it finds a predicate whose value is true"; at this point the interpreter returns the value of the corresponding consequent expression as the value of the conditional expression overall
+
+    * In Lisp, the constant `#t` denotes "true" and the constant `#f` denotes "false", in a sense (23n17)
+
+  * If none of the `[p_i]` is found to be true, the value of the `cond` is undefined
+
+* The `else` symbol can be used in place of the predicate in the final clause of `cond` (24)
+
+  * Example: could've also defined `abs` above as
+
+    ```scheme
+    (define (abs x)
+      (cond ((< x 0) (- x))
+            (else x)))
+    ```
+
+  * In fact, can use any expression that always evaluates to a true value like `else` here, in place of the final predicate
+
+* Can also use `if`, an example of a **special form**, to define the absolute-value procedure (24)
+
+  ```scheme
+  (define (abs x)
+    (if (< x 0)
+        (- x)
+        x))
+  ```
+
+  * In general: (24)
+
+    ```
+    (if [predicate] [consequent] [alternative])
+    ```
+
+* There are **logical composition operations**, which allow us to construct **compound predicates** (24-5)
+
+  * `and`: `(and [e_1] ... [e_n])`
+
+    > The interpreter evaluates the expressions [`[e]`] one at a time, in left-to-right order. **If any [`[e]`] evaluates to false, the value of the `and` expression is false and the rest of the [`[e]`]'s** [sic] **are not evaluated. If all [`[e]`]'s** [sic] **evaluate to true values, the value of the end expression is the value of the last one.**
+
+  * `or`: `(or [e_1] ... [e_n])`
+
+    > The interpreter evaluates the expressions [`[e]`] one at a time, in left-to-right order. **If any [`[e]`] evaluates to a true value, that value is returned as the value of the `or` expression, and the rest of the [`[e]`]'s** [sic] **are not evaluated. If all [`[e]`]'s** [sic] **evaluate to false, the value of the `or` expression is false.**
+
+  * `not`: `(not [e])`
+
+    > The value of a `not` expression is true when the expression [`[e]`] evaluates to false, and false otherwise.
+
 
 #### 1.1.7 Example: Square Roots by Newton's Method (pp. 27-33)
 
