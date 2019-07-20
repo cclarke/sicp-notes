@@ -536,6 +536,24 @@ July 2019
     * Making use of the `square` and `sum-of-squares` procedures defined earlier in the chapter:
 
       ```scheme
+      (define (ssq-largest-two-cond a b c)
+              (cond ((and (> a b) (> b c)) (sum-of-squares a b))
+                    ((and (> a b) (> c b)) (sum-of-squares a c))
+                    ((> a c)               (sum-of-squares a b)) ;implicitly, (> b a)
+                    (else                  (sum-of-squares b c))))
+      ```
+
+      Could also implement this using `if`:
+
+      ```scheme
+      (define (ssq-largest-two-if a b c)
+              (if (> a b)
+                  (if (> b c)
+                      (sum-of-squares a b)
+                      (sum-of-squares a c))
+                  (if (> a c)
+                      (sum-of-squares a b)
+                      (sum-of-squares b c))))
       ```
 
   * Exercise 1.4
