@@ -583,7 +583,17 @@ July 2019
 
 * Exercise 1.5
 
-  * [TODO]
+  * Under normal-order evaluation, the value of the expression `(test 0 (p))` will be `0`. Under applicative-order evaluation, the expression `(test 0 (p))` will trigger an infinite loop. The crucial difference is that under normal-order evaluation, _the expression `(p)` is never evaluated when `x` has value `0`_, because operands are not evaluated until their values are needed—and here, since the predicate of the `if` evaluates to `#t` when the value of `x` is `0`, the `(p)` expression is never evaluated. But, under applicative-order evaluation, `(p)` _is_ evaluated, since all operators and operands are evaluated before the procedure is applied to any arguments.
+
+    * A crucial thing here that I got confused about the first time I went to answer this exercise—even though things are "fully expanded" under normal-order evaluation, this _does not mean_ that each of the resulting expressions (which are all comprised of primitive expressions) is evaluated!
+
+    * So we might think that applicative-order evaluation and normal-order evaluation differ along two axes
+
+      1. The axis of expansion; and
+
+      2. The axis of application order
+
+      * For normal-order, we might paraphrase as "expand early, apply just-in-time". For applicative-order, we might paraphrase as "evaluate early, apply all at once".
 
 #### 1.1.7 Example: Square Roots by Newton's Method (pp. 28-33)
 
