@@ -597,7 +597,38 @@ July 2019
 
 #### 1.1.7 Example: Square Roots by Newton's Method (pp. 28-33)
 
-* [TODO]
+* A difference between mathematical functions and computer procedures (28)
+
+  > Procedures must be effective.
+
+  * The book frames this distinction as (in part, at least) one of construction vs. recognition
+
+  * Also, a distinction between _declarative_ knowledge and _imperative_ knowledge (28-9)
+
+    > In mathematics, we are usually concerned with declarative (what is) descriptions, whereas in computer science we are usually concerned with imperative (how to) descriptions.
+
+  * (A discussion of an implementation of Newton's method is given here)
+
+    * An interesting note (31-2)
+
+      > The `sqrt` program also illustrates that the simple procedural language we have introduced so far is sufficient for writing any purely numerical program that one could write in, say, C or Pascal. This might seem surprising, since we have not included in our language any iterative (looping) constructs that direct the computer to do something over and over again. `sqrt-iter`, on the other hand, demonstrates how iteration can be accomplished using no special construct other than the ordinary ability to call a procedure.
+
+        * (The book includes a pointer here to Section 1.2.1, which discusses _tail recursion_)
+
+##### Exercises (32-3)
+
+* Exercise 1.6
+
+  * Using the `new-if` implementation of `sqrt-iter` results in an **infinite loop** because of applicative-order evaluation—the alternative expression of `new-if` will be evaluated every single time `new-if` is applied, even if the predicate evaluates to true. This is distinct from the behavior of `if` where the alternative expression will `not` be evaluated if the predicate is true (thus allowing for proper termination of the procedure.) 
+
+* Exercise 1.7
+
+  * [TODO]
+
+* Exercise 1.8
+
+  * [TODO]
+
 
 #### 1.1.8 Procedures as Black-Box Abstractions (pp. 33-39)
 
