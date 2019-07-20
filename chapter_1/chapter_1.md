@@ -380,7 +380,143 @@ July 2019
 
   * Exercise 1.1
 
-    * [TODO]
+      1. ```scheme
+         10
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: 10
+         ```
+
+      2. ```scheme
+         (+ 5 3 4)
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: 12
+         ```
+
+      3. ```scheme
+         (- 9 1)
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: 8
+         ```
+
+      4. ```scheme
+         (/ 6 2)
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: 3
+         ```
+
+      5. ```scheme
+         (+ (* 2 4) (- 4 6))
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: 6
+         ```
+
+      6. ```scheme
+          (define a 3)
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: a
+         ```
+
+      7. ```scheme
+         (define b (+ a 1))
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: b
+         ```
+
+      8. ```scheme
+         (+ a b (* a b))
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: 19
+         ```
+
+      9. ```scheme
+         (= a b)
+         ```
+
+         prints
+
+         ```scheme
+         ;Value: #f
+         ```
+
+      10. ```scheme
+          (if (and (> b a) (< b (* a b)))
+              b
+              a)
+          ```
+
+          prints
+
+          ```scheme
+          ;Value: 4
+          ```
+
+      11. ```scheme
+          (cond ((= a 4) 6)
+                ((= b 4) (+ 6 7 a))
+                (else 25))
+          ```
+
+          prints
+
+          ```scheme
+          ;Value: 16
+          ```
+
+      12. ```scheme
+          (+ 2 (if (> b a) b a))
+          ```
+
+          prints
+
+          ```scheme
+          ;Value: 6
+          ```
+
+      13. ```scheme
+          (* (cond ((> a b) a)
+                   ((< a b) b)
+                   (else -1))
+             (+ a 1))
+          ```
+
+          prints
+
+          ```scheme
+          ;Value: 16
+          ```
+
 
   * Exercise 1.2
 
