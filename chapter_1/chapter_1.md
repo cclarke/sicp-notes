@@ -533,7 +533,10 @@ July 2019
 
   * Exercise 1.3
 
-    * [TODO]
+    * Making use of the `square` and `sum-of-squares` procedures defined earlier in the chapter:
+
+      ```scheme
+      ```
 
   * Exercise 1.4
 
