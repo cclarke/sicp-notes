@@ -298,7 +298,7 @@ July 2019
 
   * (Even given these reasons, normal-order evaluation can be a valuable tool. More on this in Chapters 3 and 4.)
 
-#### 1.1.6 Conditional Expressions and Predicates (pp. 22-27)
+#### 1.1.6 Conditional Expressions and Predicates (pp. 22-28)
 
 * The `cond` construct (short for "conditional") is used for doing **case analysis** in Lisp (22)
 
