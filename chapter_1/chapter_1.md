@@ -665,7 +665,45 @@ July 2019
     ; results in an infinite loop because changes to 'guess' are never acceptably small for 'good-enough?'
     ```
 
+    An alternative implementation fo `good-enough?` tests how "close" (in a sense) `guess` is from `(improve guess x)`,  for a given value of `guess`, and only updates `guess` if `(/ (- guess (improve guess x)) guess)` is a large enough quantity. Call this alternative implementation `guesses-close-enough?`
+
+    ```scheme
+    (define (guesses-close-enough? guess x)
+      (< (abs (/ (- guess (improve guess x)) guess)) 0.001))
+    ```
+
+    And now define alternative implementations of `sqrt-iter` and `sqrt` that make use of `guesses-close-enough?`:
+
+    ```scheme
+    (define (sqrt-iter-alt guess x)
+      (if (guesses-close-enough? guess x)
+          guess
+          (sqrt-iter-alt (improve guess x) x)))
+
+    (define (sqrt-alt x)
+      (sqrt-iter-alt 1.0 x))
+    ```
+
+    Let's see how `sqrt-alt` handles the case of a very small number:
+
+    ```scheme
+    (* (sqrt-alt 0.0009) (sqrt-alt 0.0009))
+
+    ;Value: 9.016608107957646e-4
+    ```
+
+    And now try our cases of large numbers:
+
+    ```scheme
+    (* (sqrt-alt 100000000000000000000000) (sqrt-alt 100000000000000000000000))
+
+    ;Value: 1.0000036472100744e23
+    ```
+
+    So it seems like `guesses-close-enough?` results in a square root procedure (`sqrt-alt`) that solves for the issues we were seeing before!
+
 * Exercise 1.8
+
 
   * [TODO]
 
