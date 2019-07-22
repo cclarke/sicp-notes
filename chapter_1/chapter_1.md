@@ -665,7 +665,7 @@ July 2019
     ; results in an infinite loop because changes to 'guess' are never acceptably small for 'good-enough?'
     ```
 
-    An alternative implementation fo `good-enough?` tests how "close" (in a sense) `guess` is from `(improve guess x)`,  for a given value of `guess`, and only updates `guess` if `(/ (- guess (improve guess x)) guess)` is a large enough quantity. Call this alternative implementation `guesses-close-enough?`
+    An alternative implementation fo `good-enough?` tests how "close" (in a sense) `guess` is from `(improve guess x)`,  for a given value of `guess`, and only updates `guess` if `(/ (- guess (improve guess x)) guess)` is large enough in magnitude. Call this alternative implementation `guesses-close-enough?`
 
     ```scheme
     (define (guesses-close-enough? guess x)
