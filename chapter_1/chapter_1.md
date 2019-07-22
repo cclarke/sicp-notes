@@ -619,11 +619,51 @@ July 2019
 
 * Exercise 1.6
 
-  * Using the `new-if` implementation of `sqrt-iter` results in an **infinite loop** because of applicative-order evaluation—the alternative expression of `new-if` will be evaluated every single time `new-if` is applied, even if the predicate evaluates to true. This is distinct from the behavior of `if` where the alternative expression will `not` be evaluated if the predicate is true (thus allowing for proper termination of the procedure.) 
+  * Using the `new-if` implementation of `sqrt-iter` results in an **infinite loop** because of applicative-order evaluation—the alternative expression of `new-if` will be evaluated every single time `new-if` is applied, even if the predicate evaluates to true. This is distinct from the behavior of `if` where the alternative expression will `not` be evaluated if the predicate is true (thus allowing for proper termination of the procedure.)
 
 * Exercise 1.7
 
-  * [TODO]
+  * With the following procedures as implemented in the book:
+
+    ```scheme
+
+    (define (average x y)
+      (/ (+ x y) 2))
+
+    (define (square x) (* x x))
+
+    (define (improve guess x)
+      (average guess (/ x guess)))
+
+    (define (good-enough? guess x)
+      (< (abs (- (square guess) x)) 0.001))
+
+    (define (sqrt-iter guess x)
+      (if (good-enough? guess x)
+          guess
+          (sqrt-iter (improve guess x) x)))
+
+    (define (sqrt x)
+      (sqrt-iter 1.0 x))
+
+    ```
+
+    Consider what happens for a number less than `0.001`, for example:
+
+    ```scheme
+    (* (sqrt 0.0009) (sqrt 0.0009))
+
+    ;Value: 1.6241401856992538e-3
+
+    ```
+
+    Now consider what happens for a large number, e.g., `100000000000000000000000`
+
+    ```scheme
+    (* (sqrt 100000000000000000000000) (sqrt 100000000000000000000000))
+
+    ; results in an infinite loop because changes to 'guess' are never acceptably small for 'good-enough?'
+    ```
 
 * Exercise 1.8
 
