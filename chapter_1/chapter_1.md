@@ -705,7 +705,7 @@ July 2019
 * Exercise 1.8
 
 
-  * Follow the same template as `sqrt-alt` above:
+  * Follow a similar template as `sqrt-alt` from above:
 
     ```scheme
     (define (square x) (* x x))
