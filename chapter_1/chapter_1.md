@@ -705,7 +705,68 @@ July 2019
 * Exercise 1.8
 
 
-  * [TODO]
+  * Follow the same template as `sqrt-alt` above:
+
+    ```scheme
+    (define (square x) (* x x))
+
+    (define (cube x) (* x x x))
+
+    (define (improve-cube-rt guess x)
+       (/ (+ (/ x
+                (square guess))
+             (* 2 guess))
+          3))
+
+    (define (guesses-close-enough-cube-rt? guess x)
+      (< (abs (/ (- guess (improve-cube-rt guess x)) guess)) 0.001))
+
+    (define (cube-rt-iter-alt guess x)
+      (if (guesses-close-enough-cube-rt? guess x)
+          guess
+          (cube-rt-iter-alt (improve-cube-rt guess x) x)))
+
+    (define (cube-rt-alt x)
+      (cube-rt-iter-alt 1.0 x))
+
+    ```
+
+    Now let's check some values:
+
+    ```scheme
+    (cube-rt-alt 0)
+    ;Value: 4.9406564584124654e-324
+    ```
+
+    ```scheme
+    (cube-rt-alt 8)
+
+    ;Value: 2.000004911675504
+    ```
+
+    ```scheme
+    (cube-rt-alt -27)
+
+    ;Value: -3.0001270919925287
+    ```
+
+    ```scheme
+    (* (cube-rt-alt 100000000000000000000000)
+       (cube-rt-alt 100000000000000000000000)
+       (cube-rt-alt 100000000000000000000000))
+
+    ;Value: 1.0000497722096368e23
+    ```
+
+    ```scheme
+    (* (cube-rt-alt 0.0009)
+       (cube-rt-alt 0.0009)
+       (cube-rt-alt 0.0009))
+
+    ;Value: 9.006382994805101e-4
+    ```
+
+    So it looks like our cube root procedure is working how we'd want, including for very large and very small numbers.
 
 
 #### 1.1.8 Procedures as Black-Box Abstractions (pp. 33-39)
