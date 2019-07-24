@@ -811,10 +811,27 @@ July 2019
 
   > [In the definition of `good-enough?`, if] we renamed guess to `abs` we would have introduced a bug by **_capturing_** the variable `abs`. It would have changed from free to bound.
 
-* Just because a variable is free within a given procedure does not mean that the _meaning_ of the free variable is irrelevant to the procedure, e.g., the meaining of `abs` certainly matters for the correctness of the `good-enough?` procedure (37)
+* Just because a variable is free within a given procedure does not mean that the _meaning_ of the free variable is irrelevant to the procedure, e.g., the meaning of `abs` certainly matters for the correctness of the `good-enough?` procedure (37)
 
 ##### Internal definitions and block structure (37-9)
 
+* What was just described above is a kind of **name isolation**
+
+* Consider another kind of name isolation, relating to potential implementations the square-root program: localized subprocedures using **block structure** (38)
+
+  > The problem with this program [as it was implemented in earlier sections] is that the only procedure that is important to users of `sqrt` is `sqrt`. The other procedures (`sqrt-iter`, `good-enough?`, and `improve`) only clutter up their minds. [...] We would like to **localize the subprocedures, hiding them inside `sqrt` so that `sqrt` could coexist with other successive approximations, each having its own private `good-enough?` procedure. To make this possible we allow a procedure to have internal definitions that are local to that procedure**.
+
+  * Can also leverage **lexical scoping** to simplify internal definitions (39)
+
+    > Since `x` is bound in the definition of `sqrt`, the procedures `good-enough?`, `improve`, and `sqrt-iter`, which are defined internally to `sqrt`, are in the scope of `x`. **Thus, it is not necessary to pass `x` explicitly to each of these procedures. Instead, we allow `x` to be a free variable in the internal definitions [...]. Then `x` gets its value from the argument with which the enclosing procedure `sqrt` is called. This discipline is called _lexical scoping_**.
+
+    * A bit on how lexical scoping works (39n27)
+
+      > Lexical scoping dictates that free variables in a procedure are taken to refer to bindings made by enclosing procedure definitions; **that is, they are looked up in the environment in which the procedure was defined**. We will see how this works in detail in chapter 3 when we study environments and the detailed behavior of the interpreter.
+
+  * A note about procedure body structure (39n28)
+
+    > **Embedded definitions must come first in a procedure body**. The management is not responsible for the consequences of running programs that intertwine definition and use.
 
 ### 1.2 Procedures and the Processes They Generate (pp. 40-74)
 
