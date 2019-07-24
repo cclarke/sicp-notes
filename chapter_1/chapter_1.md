@@ -783,6 +783,26 @@ July 2019
 
   > For example, when we define the `good-enough?` procedure in terms of `square`, we are able to regard the `square` procedure as a "black box." We are not at that moment concerned with _how_ the procedure computes its result, only with the fact that it computes the square. **The details of how the square is computed can be suppressed, to be considered at a later time. Indeed, as far as the `good-enough?` procedure is concerned, `square` is not quite a procedure but rather an abstraction of a procedure, a so-called _procedural abstraction_. At this level of abstraction, any procedure that computes the square is equally good.**
 
+  * A heuristic (35)
+
+    > So a procedure definition should be able to suppress detail. The users of the procedure may not have written the procedure themselves, but may have obtained it from another programmer as a black box. **A user should not need to know how the procedure is implemented in order to use it**.
+
+##### Local names
+
+* Choice of names for the procedure's formal parameters is an implementation detail that should not matter to users (35)
+
+  * A consequence: parameter names of a procedure **must be local to the body of the procedure** (36)
+
+    * An illustration of this, using the `square` and `good-enough?` procedures from before (36)
+
+      > [...] The argument of `square` is `guess`. If the author of square used `x` (as above) to refer to that argument, we see that the `x` in `good-enough?` must be a different `x` than the one in `square`. Running the procedure `square` must not affect the value of `x` that is used by `good-enough?`, because that value of `x` may be needed by `good-enough?` after `square` is done computing.
+      >
+      >   If the parameters were not local to the bodies of their respective procedures, then the parameter `x` in `square` could be confused with the parameter `x` in `good-enough?`, and the behavior of `good-enough?` would depend upon which version of `square` we used. **Thus, `square` would not be the black box we desired**.
+
+* On the importance of formal parameters of procedures (36-7)
+
+  > A formal parameter of a procedure has a very special role in the procedure definition, in that **it doesn't matter what name the formal parameter has. Such a name is called a _bound variable_, and we say that the procedure definition _binds_ its formal parameter.** The meaning of a procedure definition is unchanged if a bound variable is consistently renamed throughout the definition. **If a variable is not bound, we say that it is _free_. The set of expressions for which a binding defines a name is called the _scope_ of that name. In a procedure definition, the bound variables declared as the formal parameters of the procedure have the body of the procedure as their scope**.
+
 
 ### 1.2 Procedures and the Processes They Generate (pp. 40-74)
 
