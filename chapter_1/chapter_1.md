@@ -30,7 +30,7 @@ July 2019
 
   > Well-designed computational systems, like well-designed automobiles or nuclear reactors, are designed in a modular manner, so that parts can be constructed, replaced, and debugged separately.
 
-##### Programming in Lisp
+##### Programming in Lisp (3-5)
 
 * "[...] our **procedural** thoughts will be expressed in Lisp" (3)
 
@@ -787,7 +787,7 @@ July 2019
 
     > So a procedure definition should be able to suppress detail. The users of the procedure may not have written the procedure themselves, but may have obtained it from another programmer as a black box. **A user should not need to know how the procedure is implemented in order to use it**.
 
-##### Local names
+##### Local names (35-7)
 
 * Choice of names for the procedure's formal parameters is an implementation detail that should not matter to users (35)
 
@@ -802,6 +802,18 @@ July 2019
 * On the importance of formal parameters of procedures (36-7)
 
   > A formal parameter of a procedure has a very special role in the procedure definition, in that **it doesn't matter what name the formal parameter has. Such a name is called a _bound variable_, and we say that the procedure definition _binds_ its formal parameter.** The meaning of a procedure definition is unchanged if a bound variable is consistently renamed throughout the definition. **If a variable is not bound, we say that it is _free_. The set of expressions for which a binding defines a name is called the _scope_ of that name. In a procedure definition, the bound variables declared as the formal parameters of the procedure have the body of the procedure as their scope**.
+
+* In the example of `good-enough?` the variables `<`, `-`, and `abs` are free
+
+  * A thought came up here: as the authors have described them, aren't "free" and "bound" _relative_ notions? So like the variable `<` is free _relative to_ `good-enough?` or something like this.
+
+* The notion of **capturing** a variable (37)
+
+  > [In the definition of `good-enough?`, if] we renamed guess to `abs` we would have introduced a bug by **_capturing_** the variable `abs`. It would have changed from free to bound.
+
+* Just because a variable is free within a given procedure does not mean that the _meaning_ of the free variable is irrelevant to the procedure, e.g., the meaining of `abs` certainly matters for the correctness of the `good-enough?` procedure (37)
+
+##### Internal definitions and block structure (37-9)
 
 
 ### 1.2 Procedures and the Processes They Generate (pp. 40-74)
