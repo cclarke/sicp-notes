@@ -771,8 +771,17 @@ July 2019
 
 #### 1.1.8 Procedures as Black-Box Abstractions (pp. 33-39)
 
-* [TODO]
+* A note about `sqrt` (33)
 
+  > `sqrt` is our first example of a process defined by a set of **mutually defined procedures**.
+
+* A note about the design decision behind how we decomposed the square root procedure (34)
+
+  > Observe that the problem of computing square roots breaks up naturally into a number of subproblems: how to tell whether a guess is good enough, how to improve a guess, and so on. [...] The importance of this decomposition strategy is not simply that one is dividing the program into parts. [...] **Rather, it is crucial that each procedure accomplishes an identifiable task that can be used as a module in defining other procedures**.
+
+* The key thing here is **_procedural abstraction_** (34-5)
+
+  > For example, when we define the `good-enough?` procedure in terms of `square`, we are able to regard the `square` procedure as a "black box." We are not at that moment concerned with _how_ the procedure computes its result, only with the fact that it computes the square. **The details of how the square is computed can be suppressed, to be considered at a later time. Indeed, as far as the `good-enough?` procedure is concerned, `square` is not quite a procedure but rather an abstraction of a procedure, a so-called _procedural abstraction_. At this level of abstraction, any procedure that computes the square is equally good.**
 
 
 ### 1.2 Procedures and the Processes They Generate (pp. 40-74)
