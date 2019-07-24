@@ -857,6 +857,16 @@ July 2019
 
 * Highlights the difference in "shape" between a linear recursive process and a linear iterative process for factorial calculations (41-3)
 
+#### 1.2.2 Tree Recursion (47-54)
+
+#### 1.2.3 Orders of Growth (54-57)
+
+#### 1.2.4 Exponentiation (57-62)
+
+#### 1.2.5 Greatest Common Divisors (62-65)
+
+#### 1.2.6 Example: Testing for Primality (65-74)
+
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
 
 * [TODO]
