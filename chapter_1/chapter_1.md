@@ -889,7 +889,7 @@ July 2019
 
       * This implementation of Scheme is **_tail-recursive_**, which meas that it "will execute an iterative process in constant space, even if the iterative process is described by a recursive procedure" (46)
 
-      * A note about a benefit of tail-recursive implementations:
+      * A note about a benefit of tail-recursive implementations (46)
 
         > With a tail-recursive implementation, **iteration can be expressed using the ordinary procedure call mechanism, so that special iteration constructs are useful only as syntactic sugar**.
 
