@@ -857,6 +857,44 @@ July 2019
 
 * Highlights the difference in "shape" between a linear recursive process and a linear iterative process for factorial calculations (41-3)
 
+  * The linear recursive process ends up building up a chain of **_deferred operations_**—"a shape of expansion followed by contraction" (44)
+
+    * Authors claim that a chain of deferred operations is characteristic of recursive processes (44)
+
+    * "Carrying out this process **requires that the interpreter keep track of the operations to be performed later on**" (44)
+
+    * The "linear" in "linear recursive process" refers to the fact that the number of deferred operations grows linearly with the input `n`
+
+  * The linear iterative process does not grow and shrink—just have to keep track of some **state variables** (44)
+
+    > In general, an iterative process is one whose state can be summarized by a fixed number of _state variables_, together with a fixed rule that describes how the state variables should be updated as the process moves from state to state and an (optional) end test that specifies conditions under which the process should terminate.
+
+    * Our iterative process is "linear" because the number of required grows linearly with the input `n` (44)
+
+* A different contrast between iterative and recursive processes (45)
+
+  > In the iterative case, the program variables provide a complete description of the of the state of the process at any point. [...] Not so with the recursive process. In this case there is some additional "hidden" information, maintained by the interpreter and not contained in the program variables, which indicates "where the process is" in negotiation the chain of deferred operations. The longer the chain, the more information must be maintained.
+
+* Also, need to stay clear on the fact that the notion of a recursive _process_ is distinct from the notion of a recursive _procedure_ (45)
+
+  * Saying that a procedure is recursive is essentially a syntactic claim: what we're saying here is that "the procedure definition refers (either directly or indirectly) to the procedure itself" (45)
+
+  * When we say that a process is recursive, we're speaking about how the process itself evolves, not about the syntax of how a procedure is written (45)
+
+  * Authors note that lots of implementations of common languages (like Ada, Pascal, and C) have it that (45-6)
+
+    > [...] the interpretation of any recursive procedure consumes an amount of memory that grows with the number of procedure calls, even when the process described is, in principle, iterative. **As a consequence, these languages can describe iterative processes only by resorting to special-purpose "looping constructs" such as `do`, `repeat`, `until`, `for`, and `while`.**
+
+    * Authors think this is a defect of these other languages (which the implementation of Scheme discussed in Chapter 5 intentionally does not share) (46)
+
+      * This implementation of Scheme is **_tail-recursive_**, which meas that it "will execute an iterative process in constant space, even if the iterative process is described by a recursive procedure" (46)
+
+      * A note about a benefit of tail-recursive implementations:
+
+        > With a tail-recursive implementation, **iteration can be expressed using the ordinary procedure call mechanism, so that special iteration constructs are useful only as syntactic sugar**.
+
+
+
 #### 1.2.2 Tree Recursion (47-54)
 
 #### 1.2.3 Orders of Growth (54-57)
