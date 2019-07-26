@@ -376,7 +376,7 @@ July 2019
 
   *  (`not` is an ordinary procedure, though)
 
-**Exercises** (26-8)
+##### Exercises (26-8)
 
 * Exercise 1.1
 
@@ -893,7 +893,7 @@ July 2019
 
         > With a tail-recursive implementation, **iteration can be expressed using the ordinary procedure call mechanism, so that special iteration constructs are useful only as syntactic sugar**.
 
-
+##### Exercises (46-7)
 
 #### 1.2.2 Tree Recursion (47-54)
 
