@@ -935,7 +935,34 @@ July 2019
 
 * Exercise 1.10
 
-  * [TODO]
+  * Define the Ackermann function procedure as given in the book:
+
+    ```scheme
+    (define (A x y)
+      (cond ((= y 0) 0)
+            ((= x 0) (* 2 y))
+            ((= y 1) 2)
+            (else (A (- x 1) (A x (- y 1))))))
+    ```
+
+    Then we have:
+
+    ```scheme
+    (A 1 10)
+    ;Value: 1024
+
+    (A 2 4)
+    ;Value: 65536
+
+    (A 3 3)
+    ;Value: 65536
+    ```
+
+    For the procedures listed in the book we have:
+
+      * `(define (f n) (A 0 n))` computes $2n$
+      * `(define (g n) (A 1 n))` computes $2^n$
+      * `(define (h n) (A 2 n))` computes ${^{n}2}$ (a.k.a a ["tetration"](https://en.wikipedia.org/wiki/Tetration))
 
 #### 1.2.2 Tree Recursion (47-54)
 
