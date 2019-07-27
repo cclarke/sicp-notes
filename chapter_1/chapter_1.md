@@ -966,6 +966,16 @@ July 2019
 
 #### 1.2.2 Tree Recursion (47-54)
 
+* A description of **tree recursion** (48)
+
+  > In general, the evolved process looks like a tree
+
+  * The example is given of computing the nth Fibonacci number
+
+  * A remark on the time and space complexity of tree-recursive processes (49)
+
+    > In general, the number of steps required by a tree-recursive process will be proportional to the number of nodes in the tree, while the space required will be proportional to the maximum depth of the tree.
+
 #### 1.2.3 Orders of Growth (54-57)
 
 #### 1.2.4 Exponentiation (57-62)
