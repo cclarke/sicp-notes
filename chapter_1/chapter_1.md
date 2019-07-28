@@ -991,7 +991,9 @@ July 2019
     ```scheme  
     (define (f-r n)
       (cond ((< n 3) n)
-            (else (+ (f (- n 1)) (* 2 (f (- n 2))) (* 3 (f (- n 3)))))))
+            (else (+ (f (- n 1))
+                     (* 2 (f (- n 2)))
+                     (* 3 (f (- n 3)))))))
     ```
 
     And for a procedure that computes $f$ by means of an iterative process we can define:
@@ -1009,7 +1011,18 @@ July 2019
 
 * Exercise 1.12
 
-  * [TODO]
+  * ```scheme
+    (define (pascal-entry row entry)
+      (cond ((or (> entry row)
+                 (< row 1)
+                 (< entry 1))
+              0)
+            ((and (= row 1)
+                  (= entry 1))
+              1)
+            (else (+ (pascal-entry (- row 1) (- entry 1))
+                     (pascal-entry (- row 1) entry)))))
+    ```
 
 * Exercise 1.13
 
