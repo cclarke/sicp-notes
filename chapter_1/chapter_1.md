@@ -1030,6 +1030,22 @@ July 2019
 
 #### 1.2.3 Orders of Growth (54-57)
 
+* Can use the notion of **_order of growth_** as a way to get a gross measure of the resources required by a process as input grows (54)
+
+  * A seemingly standard definition of big-theta complexity is given here (55)
+
+##### Exercises (56-7)
+
+* Exercise 1.14
+
+  * (Might take time to do this exercise in the future.)
+
+* Exercise 1.15
+
+  a. `p` is evaluated $\lceil (\log_{3}(\frac{12.15}{0.1})) \rceil = 5$ times.
+
+  b. Space and number of both grow like $\log a$ for a given input `a` to the `sine` procedure.
+
 #### 1.2.4 Exponentiation (57-62)
 
 #### 1.2.5 Greatest Common Divisors (62-65)
