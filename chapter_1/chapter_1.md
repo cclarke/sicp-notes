@@ -986,7 +986,26 @@ July 2019
 
 * Exercise 1.11
 
-  * [TODO]
+  * For a procedure that computes $f$ by means of a recursive process we can define:
+
+    ```scheme  
+    (define (f-r n)
+      (cond ((< n 3) n)
+            (else (+ (f (- n 1)) (* 2 (f (- n 2))) (* 3 (f (- n 3)))))))
+    ```
+
+    And for a procedure that computes $f$ by means of an iterative process we can define:
+
+    ```scheme
+    (define (f-i n)
+      (f-iter 2 1 0 n))
+
+    (define (f-iter a b c count)
+      (cond ((= count 0) c)
+            ((= count 1) b)
+            ((= count 2) a)
+            (else (f-iter (+ a (* 2 b) (* 3 c)) a b (- count 1)))))
+    ```
 
 * Exercise 1.12
 
