@@ -1044,7 +1044,7 @@ July 2019
 
   a. `p` is evaluated $\lceil (\log_{3}(\frac{12.15}{0.1})) \rceil = 5$ times.
 
-  b. Space and number of both grow like $\log a$ for a given input `a` to the `sine` procedure.
+  b. Space and number of steps both grow like $\log a$ for a given input `a` to the `sine` procedure.
 
 #### 1.2.4 Exponentiation (57-62)
 
