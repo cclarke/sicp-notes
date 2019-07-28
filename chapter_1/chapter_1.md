@@ -1026,7 +1026,7 @@ July 2019
 
 * Exercise 1.13
 
-  * [TODO]
+  * (Might solve this and TeX the solution to put here in the future.)
 
 #### 1.2.3 Orders of Growth (54-57)
 
