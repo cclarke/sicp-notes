@@ -1048,7 +1048,7 @@ July 2019
 
 #### 1.2.4 Exponentiation (57-62)
 
-* A couple implementations of an exponentiation procedure, and their varying orders of growth for both space and number of steps, are discussed (57-59)
+* A couple implementations of an exponentiation process, and their varying orders of growth for both space and number of steps, are discussed (57-59)
 
 ##### Exercises (59-62)
 
