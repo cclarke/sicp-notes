@@ -982,6 +982,19 @@ July 2019
 
 ##### Example: Counting change
 
+##### Exercises (53-4)
+
+* Exercise 1.11
+
+  * [TODO]
+
+* Exercise 1.12
+
+  * [TODO]
+
+* Exercise 1.13
+
+  * [TODO]
 
 #### 1.2.3 Orders of Growth (54-57)
 
