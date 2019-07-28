@@ -976,6 +976,13 @@ July 2019
 
     > In general, the number of steps required by a tree-recursive process will be proportional to the number of nodes in the tree, while the space required will be proportional to the maximum depth of the tree.
 
+* Tree recursion is a particularly natural and powerful tool for processes that **operate on hierarchically structured data** rather than on numbers (50)
+
+  * Can also be a useful cognitive tool when reasoning about particular problems—for example, if a particular problem admits both iterative and recursive processes as solutions, but the recursive process is more "natural" a solution in some sense (even if inefficient), then understanding the recursive process can sometimes be a steppingstone on the way to understanding the iterative process
+
+##### Example: Counting change
+
+
 #### 1.2.3 Orders of Growth (54-57)
 
 #### 1.2.4 Exponentiation (57-62)
