@@ -1048,6 +1048,28 @@ July 2019
 
 #### 1.2.4 Exponentiation (57-62)
 
+* A couple implementations of an exponentiation procedure, and their varying orders of growth for both space and number of steps, are discussed (57-59)
+
+##### Exercises (59-62)
+
+* Exercise 1.16
+
+  * [TODO]
+
+* Exercise 1.17
+
+  * [TODO]
+
+* Exercise 1.18
+
+  * [TODO]
+
+* Exercise 1.19
+
+  * [TODO]
+
+
+
 #### 1.2.5 Greatest Common Divisors (62-65)
 
 #### 1.2.6 Example: Testing for Primality (65-74)
