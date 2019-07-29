@@ -1054,7 +1054,21 @@ July 2019
 
 * Exercise 1.16
 
-  * [TODO]
+  * We define an iterative `fast-expt` as follows:
+
+    ```scheme
+    (define (fast-expt b n)
+      (fast-expt-iter b n 1))
+
+    (define (fast-expt-iter b counter product)
+      (if (= counter 0)
+          product
+          (cond ((even? counter) (square (fast-expt-iter b (/ counter 2) product)))
+                (else (* b (fast-expt-iter b (- counter 1) product))))))
+
+    (define (even? n)
+      (= (remainder n 2) 0))   
+    ```
 
 * Exercise 1.17
 
