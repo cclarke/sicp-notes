@@ -1164,7 +1164,7 @@ July 2019
     (if (= (remainder 40
                      (remainder 206
                                 40))
-           0)) ...)
+           0) ...)
 
     ; etc.
 
