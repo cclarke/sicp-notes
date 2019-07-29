@@ -1245,7 +1245,36 @@ July 2019
 
 * Exercise 1.21
 
-  * [TODO]
+  * Define the `smallest-divisor` procedure (and its dependencies) as given in the text on pp. 65-6:
+
+    ```scheme
+    (define (smallest-divisor n) (find-divisor n 2))
+
+    (define (find-divisor n test-divisor)
+      (cond ((> (square test-divisor) n) n)
+            ((divides? test-divisor n) test-divisor)
+            (else (find-divisor n (+ test-divisor 1)))))
+
+    (define (divides? a b) (= (remainder b a) 0))
+    ```
+
+    Now we use `smallest-divisor` to find the smallest divisor of each of 199, 1999, and 19999:
+
+    ```scheme
+    (smallest-divisor 199)
+
+    ;Value: 199
+
+
+    (smallest-divisor 1999)
+
+    ;Value: 1999
+
+
+    (smallest-divisor 19999)
+
+    ;Value: 7
+    ```
 
 * Exercise 1.22
 
