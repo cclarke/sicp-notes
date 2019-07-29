@@ -1211,6 +1211,10 @@ July 2019
 
 #### 1.2.6 Example: Testing for Primality (65-74)
 
+* Sumnmary of the section (65)
+
+  > This section describes two methods for checking the primality of an integer $n$, one with order of growth $\Theta(\sqrt{n})$ and a "probabilistic" algorithm with order of growth $\Theta(\log n)$. The exercises at the end of this section suggest programming projects based on these algorithms.
+
 ##### Searching for divisors (65-6)
 
 ##### The Fermat test (66-8)
