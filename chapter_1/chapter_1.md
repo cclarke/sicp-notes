@@ -1430,7 +1430,7 @@ July 2019
     ;Unspecified return value
     ```
 
-    So the ratios of execution times for corresponding primes is (roughly) anywhere between 1.6x and 3x faster for the alternative implementation of `find-divisor`. This is certainly faster, but it seems like there might be work going on under the hood in the computer that impacts the execution time of the programs, beyond just how we define our procedure.
+    So the execution times for corresponding primes are (roughly) anywhere between 1.6x and 3x faster for the alternative implementation of `find-divisor`. This is certainly faster, but it seems like there might be work going on under the hood in the computer that impacts the execution time of the programs, beyond just how we define our procedure.
 
 * Exercise 1.24
 
