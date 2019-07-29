@@ -1217,6 +1217,12 @@ July 2019
 
 ##### Searching for divisors (65-6)
 
+* One way to test if a number is prime is to find that number's divisors (65)
+
+  * And so can implement a procedure (called `prime?` in the book) that tests if a given `n` is it's own smallest divisor (which is equivalent condition to `n` being prime) (66)
+
+  * The implementation in the book only tests numbers up through $\sqrt{n}$ for a given input `n`—hence a $\Theta(\sqrt{n})$ order of growth
+
 ##### The Fermat test (66-8)
 
 ##### Probabilistic methods (69-70)
