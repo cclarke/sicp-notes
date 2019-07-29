@@ -887,7 +887,7 @@ July 2019
 
     * Authors think this is a defect of these other languages (which the implementation of Scheme discussed in Chapter 5 intentionally does not share) (46)
 
-      * This implementation of Scheme is **_tail-recursive_**, which meas that it "will execute an iterative process in constant space, even if the iterative process is described by a recursive procedure" (46)
+      * This implementation of Scheme is **_tail-recursive_**, which means that it "will execute an iterative process in constant space, even if the iterative process is described by a recursive procedure" (46)
 
       * A note about a benefit of tail-recursive implementations (46)
 
