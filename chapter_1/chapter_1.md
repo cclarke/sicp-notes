@@ -1137,6 +1137,78 @@ July 2019
 
 #### 1.2.5 Greatest Common Divisors (62-65)
 
+* Calculating GCDs becomes important in Scheme for implementing rational-number arithmetic (62)
+
+##### Exercises (65)
+
+* Exercise 1.20
+
+  * With normal-order evaluation we have...
+
+    ```scheme
+    (gcd 206 40)
+
+    (if (= 40 0) ...)
+
+    (gcd 40
+         (remainder 206 40))
+
+    (if (= (remainder 206 40) 0))
+
+    (gcd (remainder 206
+                    40)
+         (remainder 40
+                    (remainder 206
+                               40)))
+
+    (if (= (remainder 40
+                     (remainder 206
+                                40))
+           0)) ...)
+
+    ; etc.
+
+    ```
+    ...until eventually we get to an expression consisting of bunch of nesting of `remainder` operations, where that expression evaluates to `0`. The thing to note here is that all the `remainder` operations that are performed are those in the "final" `if` statement, and then all the `remainder` operations actually constituting the GCD calculation once the predicate of the `if` is true. Doing a quick recurrence relation, we can see that if given inputs `a` and `b` to `gcd` are comprised of $n_a$ and $n_b$ `remainder` operations, respectively, then the arguments to the next recursive call of `gcd` (call them `a_prime` and `b_prime`) will have $n_b$ and $n_a + $n_b + 1$ `remainder` operations, respectively. (Note that this looks very similar to a Fibonacci recurrence!)
+
+    So the number of `remainder` statements generated in considering a given set of inputs looks something like, at a given step s in the process:
+
+    | (a, b) | n_a_s = n_b_{s-1} | n_b_s = n_a_{s-1} + n_b_{s-1} + 1 | total (n_a_s + n_b_s) |
+    | --- | --- | --- | --- |
+    | (206, 40) | 0 | 1 | 1 |
+    | (40, 6) | 1 | 2 | 3 |
+    | (6, 4) | 2 | 4 | 6 |
+    | (4, 2) | 4 | 7 | 11 |
+
+    After this last phase, we reach the base case of the recursion—at which point 7 `remainder` operations are performed in the predicate of the `if` statement, and 4 are performed in the consequent expression (and none in the alternative expression, by the rule for normal-order `if` cited in Exercise 1.5). So, in total, 11 `remainder` operations are performed in normal-order evaluation.
+
+    In applicative-order evaluation, the process looks different:
+
+    ```scheme
+    (gcd 206 40)
+    (if (= 40 0) ...)
+
+    (gcd 40 (remainder 206 40))
+    (gcd 40 6)
+    (if (= 6 0) ...)
+
+    (gcd 6 (remainder 40 6))
+    (gcd 6 4)
+    (if (= 4 0) ...)
+
+    (gcd 4 (remainder 6 4))
+    (gcd 4 2)
+    (if (= 2 0) ...)
+
+    (gcd 2 (remainder 4 2))
+    (gcd 2 0)
+    (if (= 0 0) ...)
+
+    2
+    ```
+
+    So applicative-order evaluation performs 4 `remainder` operations in the evaluation of `(gcd 206 40)`.
+
 #### 1.2.6 Example: Testing for Primality (65-74)
 
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
