@@ -1211,6 +1211,14 @@ July 2019
 
 #### 1.2.6 Example: Testing for Primality (65-74)
 
+##### Searching for divisors (65-6)
+
+##### The Fermat test (66-8)
+
+##### Probabilistic methods (69-70)
+
+##### Exercises (70-4)
+
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
 
 * [TODO]
