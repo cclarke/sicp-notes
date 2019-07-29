@@ -1112,7 +1112,28 @@ July 2019
 
 * Exercise 1.19
 
-  * [TODO]
+  * Can see this using matrix algebra with a 2-by-2 transition matrix where the first row is $(p + q, q)$ and the second row is $(q, p)$. (I'm not TeXing this right now because I don't kow how to easily get it to show up nicely in the rendered Markdown.) If we square this matrix we have it that $p^{\prime} = p^2 + q^2$ and $q^{\prime} = q^2 + 2qp$.
+
+    Now complete the procedure outlined in the book, using the values we've just derived:
+
+    ```scheme
+    (define (fib n)
+      (fib-iter 1 0 0 1 n))
+
+    (define (fib-iter a b p q count)
+      (cond ((= count 0) b)
+            ((even? count)
+             (fib-iter a
+                       b
+                       (+ (* p p) (* q q))
+                       (+ (* q q) (* 2 p q))
+                       (/ count 2)))
+            (else (fib-iter (+ (* b q) (* a q) (* a p))
+                            (+ (* b p) (* a q))
+                            p
+                            q
+                            (- count 1)))))
+    ```
 
 
 
