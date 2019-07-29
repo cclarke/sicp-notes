@@ -1243,6 +1243,38 @@ July 2019
 
 ##### Exercises (70-4)
 
+* Exercise 1.21
+
+  * [TODO]
+
+* Exercise 1.22
+
+  * [TODO]
+
+* Exercise 1.23
+
+  * [TODO]
+
+* Exercise 1.24
+
+  * [TODO]
+
+* Exercise 1.25
+
+  * [TODO]
+
+* Exercise 1.26
+
+  * [TODO]
+
+* Exercise 1.27
+
+  * [TODO]
+
+* Exercise 1.28
+
+  * [TODO]
+
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
 
 * [TODO]
