@@ -1225,6 +1225,18 @@ July 2019
 
 ##### The Fermat test (66-8)
 
+* A $\Theta(\log n)$ result primality test can be derived using Fermat's Little Theorem (66-7)
+
+  > **Fermat's Little Theorem**: If $n$ is a prime number and $a$ is any positive integer less than $n$, then $a$ raised to the $n^{\text{th}}$ power is congruent to $a$ modulo $n$.
+
+* The relevant algorithm here is the **Fermat test** (67)
+
+  > If $n$ is not prime, then, in general, most of the numbers $a < n$ will not satisfy [the relation described in Fermat's Little Theorem]. This leads to the following algorithm for testing primality: Given a number $n$, pick a random number $a < n$ and compute the remainder of $a^n$ modulo $n$. If the result is not equal to $a$, then $n$ is certainly not prime. If it is $a$, then chances are good that $n$ is prime. Now pick another random number $a$ and test it with the same method. If it also satisfies the equation, then we can be even more confident that $n$ is prime. By trying more and more values of $a$, we can increase our confidence in the result. **This algorithm is known as the Fermat test**.
+
+  * This algorithm involves the [**expmod**](https://en.wikipedia.org/wiki/Modular_exponentiation) operation
+
+    * Implementation details are given in the book; the crucial implementation detail for the logarithmic order of growth has to do with the implementation of `expmod` (given on page 67)
+
 ##### Probabilistic methods (69-70)
 
 ##### Exercises (70-4)
