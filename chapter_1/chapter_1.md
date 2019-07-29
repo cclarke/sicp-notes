@@ -1239,6 +1239,8 @@ July 2019
 
 ##### Probabilistic methods (69-70)
 
+* Gives some discussion of probabilistic (non-)guarantees of correctness, as well as alternative tests that can get around numbers that can "fool" the ordinary Fermat test (i.e. _Carmichael numbers_) (69, 69n47)
+
 ##### Exercises (70-4)
 
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
