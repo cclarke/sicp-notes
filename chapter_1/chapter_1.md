@@ -1112,7 +1112,7 @@ July 2019
 
 * Exercise 1.19
 
-  * Can see this using matrix algebra with a 2-by-2 transition matrix where the first row is $(p + q, q)$ and the second row is $(q, p)$. (I'm not TeXing this right now because I don't kow how to easily get it to show up nicely in the rendered Markdown.) If we square this matrix we have it that $p^{\prime} = p^2 + q^2$ and $q^{\prime} = q^2 + 2qp$.
+  * Can see this using matrix algebra with a 2-by-2 transition matrix where the first row is $(p + q, q)$ and the second row is $(q, p)$. (I'm not TeXing this right now because I don't know how to easily get it to show up nicely in the rendered Markdown.) If we square this matrix we have it that $p^{\prime} = p^2 + q^2$ and $q^{\prime} = q^2 + 2qp$.
 
     Now complete the procedure outlined in the book, using the values we've just derived:
 
@@ -1134,8 +1134,6 @@ July 2019
                             q
                             (- count 1)))))
     ```
-
-
 
 #### 1.2.5 Greatest Common Divisors (62-65)
 
