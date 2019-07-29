@@ -1054,7 +1054,7 @@ July 2019
 
 * Exercise 1.16
 
-  * We define an iterative `fast-expt` as follows:
+  * We define an iterative `fast-expt` procedrue as follows:
 
     ```scheme
     (define (fast-expt b n)
