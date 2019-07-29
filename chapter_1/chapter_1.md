@@ -1382,7 +1382,55 @@ July 2019
 
 * Exercise 1.23
 
-  * [TODO]
+  * Define a new `find-divisor` procedure as follows:
+
+    ```scheme
+    (define (find-divisor n test-divisor)
+      (cond ((> (square test-divisor) n) n)
+            ((divides? test-divisor n) test-divisor)
+            (else (find-divisor n (next test-divisor)))))
+
+    (define (next n)
+      (cond ((= n 2) 3)
+            (else (+ n 2))))
+    ```
+
+    Now we have
+
+    ```scheme
+    (get-first-n-primes-greater 1000000000 3)    ;1e9
+
+    1000000007 *** 2.0000000000000018e-2
+    1000000009 *** 9.999999999999787e-3
+    1000000021 *** 9.999999999999787e-3
+    ;Unspecified return value
+    ```
+    ```scheme
+    (get-first-n-primes-greater 10000000000 3)   ;1e10
+
+    10000000019 *** 4.0000000000000036e-2
+    10000000033 *** .04999999999999982
+    10000000061 *** 4.0000000000000036e-2
+    ;Unspecified return value
+    ```
+    ```scheme
+    (get-first-n-primes-greater 100000000000 3)  ;1e11
+
+    100000000003 *** .14000000000000057
+    100000000019 *** .15000000000000036
+    100000000057 *** .13999999999999968
+    ;Unspecified return value
+    ```
+    ```scheme
+    (get-first-n-primes-greater 1000000000000 3) ;1e12
+
+    1000000000039 *** .4500000000000002
+    1000000000061 *** .45999999999999996
+    1000000000063 *** .4500000000000002
+    ;Unspecified return value
+    ```
+
+    So the ratios of execution times for corresponding primes is (roughly) anywhere between 1.6x and 3x faster for the alternative implementation of `find-divisor`. This is certainly faster, but it seems like there might be work going on under the hood in the computer that impacts the execution time of the programs, beyond just how we define our procedure.
 
 * Exercise 1.24
 
