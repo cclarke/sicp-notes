@@ -1173,7 +1173,7 @@ July 2019
 
     So the number of `remainder` statements generated in considering a given set of inputs looks something like, at a given step s in the process:
 
-    | (a, b) | n_a_s = n_b_{s-1} | n_b_s = n_a_{s-1} + n_b_{s-1} + 1 | total (n_a_s + n_b_s) |
+    | $(a, b)$ | $n_{a_s} = n_{b_{s-1}}$ | $n_{b_s} = n_{a_{s-1}} + n_{b_{s-1}} + 1$ | total ($n_{a_s} + n_{b_s}$) |
     | --- | --- | --- | --- |
     | (206, 40) | 0 | 1 | 1 |
     | (40, 6) | 1 | 2 | 3 |
