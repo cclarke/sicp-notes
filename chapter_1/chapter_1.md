@@ -1278,7 +1278,107 @@ July 2019
 
 * Exercise 1.22
 
-  * [TODO]
+  * First define the procedures given in the text on pg. 70 (slightly modified to only display `n` if `n` is prime), along with the procedure `prime?` from pp. 65-6:
+
+    ```scheme
+    (define (timed-prime-test n)
+      (start-prime-test n (runtime)))
+
+    (define (start-prime-test n start-time)
+      (if (prime? n)
+        (report-prime (- (runtime) start-time) n)))
+
+    (define (report-prime elapsed-time n)
+      (newline)
+      (display n)
+      (display " *** ")
+      (display elapsed-time))
+    ```
+
+    ```scheme
+    (define (prime? n)
+      (= n (smallest-divisor n)))
+
+    (define (smallest-divisor n) (find-divisor n 2))
+
+    (define (find-divisor n test-divisor)
+      (cond ((> (square test-divisor) n) n)
+            ((divides? test-divisor n) test-divisor)
+            (else (find-divisor n (+ test-divisor 1)))))
+
+    (define (divides? a b) (= (remainder b a) 0))
+    ```
+
+    And now define our `search-for-primes` procedure (consulted with the [solution at the sicp-wiki](http://community.schemewiki.org/?sicp-ex-1.22) for some implementation details):
+
+    ```scheme
+    (define (search-for-primes low high)
+      (define (search-iter cur last)
+        (if (<= cur last)
+            (timed-prime-test cur))
+        (if (and (<= cur last))
+            (search-iter (+ cur 2) last)))
+      (search-iter (if (= (remainder low 2) 0) (+ low 1) low)
+                   (if (= (remainder high 2) 0) (- high 1) high)))
+
+    ```
+
+    This is the procedure called for by the book—but to answer the question posed, a slightly different procedure would be more helpful. Call this procedure `get-first-n-primes-greater`:
+
+    ```scheme
+    (define (get-first-n-primes-greater low n)
+      (define (search-iter cur count max-count)
+        (timed-prime-test cur)
+        (if (and (< count n)) ; leverage lexical scoping here
+            (search-iter (+ cur 2 )
+                         (if (prime? cur)
+                             (+ count 1)
+                             count)
+                         max-count)))
+      (search-iter (if (= (remainder low 2) 0) (+ low 1) low)
+                   0
+                   n))
+    ```
+
+    Now let's try out the procedure for sets of arguments that differ in order of magnitude
+
+    ```scheme
+    (get-first-n-primes-greater 1000000000 3)    ;1e9
+
+    1000000007 *** 3.0000000000001137e-2
+    1000000009 *** 1.9999999999999574e-2
+    1000000021 *** 3.0000000000001137e-2
+    ;Unspecified return value   
+    ```
+
+    ```scheme
+    (get-first-n-primes-greater 10000000000 3)   ;1e10
+
+    10000000019 *** .0799999999999983
+    10000000033 *** .08000000000000185
+    10000000061 *** .07000000000000028
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (get-first-n-primes-greater 100000000000 3)  ;1e11
+
+    100000000003 *** .22999999999999687
+    100000000019 *** .23999999999999844
+    100000000057 *** .23000000000000043
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (get-first-n-primes-greater 1000000000000 3) ;1e12
+
+    1000000000039 *** .7400000000000002
+    1000000000061 *** .7199999999999989
+    1000000000063 *** .7199999999999989
+    ;Unspecified return value
+    ```
+
+    Dividing some candidate values from each successive magnitude of input gives `elapsed-time` ratios of between 2.7 and 3.2—which aligns (more or less) with the expected with the $\Theta(\sqrt{10})$ order of growth.
 
 * Exercise 1.23
 
