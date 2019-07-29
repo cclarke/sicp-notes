@@ -1085,11 +1085,30 @@ July 2019
     (define (halve x) (/ x 2))
 
     (define (even? n)
+      (= (remainder n 2) 0))
     ```
 
 * Exercise 1.18
 
-  * [TODO]
+  * Define an iterative `fast-mult`:
+
+    ```scheme
+    (define (fast-mult a b)
+      (fast-mult-iter a b 0))
+
+    (define (fast-mult-iter a counter sum)
+      (if (= counter 0)
+          sum
+          (cond ((even? counter) (fast-mult-iter (double a) (halve counter) sum))
+                (else (fast-mult-iter a (- counter 1) (+ a sum))))))
+
+    (define (double x) (+ x x))
+
+    (define (halve x) (/ x 2))
+
+    (define (even? n)
+      (= (remainder n 2) 0))   
+    ```
 
 * Exercise 1.19
 
