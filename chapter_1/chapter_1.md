@@ -1674,6 +1674,36 @@ July 2019
 
 #### 1.3.1 Procedures as Arguments (76-82)
 
+* Some examples are given of summation of series (77)
+
+  * In math, "sigma notation" (77)
+
+    > The power of sigma notation is that it allows mathematicians to deal with the concept of summation itself rather than only with particular sums.
+
+* In practice, we can just pass in the names of procedures as arguments to other procedures (77-8)
+
+##### Exercises (80-2)
+
+* Exercise 1.29
+
+  * [TODO]
+
+* Exercise 1.30
+
+  * [TODO]
+
+* Exercise 1.31
+
+  * [TODO]
+
+* Exercise 1.32
+
+  * [TODO]
+
+* Exercise 1.33
+
+  * [TODO]
+
 #### 1.3.2 Constructing Procedures Using `lambda` (83-88)
 
 #### 1.3.3 Procedures as General Methods (89-96)
