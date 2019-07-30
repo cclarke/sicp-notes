@@ -1658,6 +1658,20 @@ July 2019
 
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
 
+* A framing thought for what we've seen so far (74)
+
+  > We have seen that **procedures are, in effect, abstractions that describe compound operations on numbers independent of the particular numbers**.
+
+  * A framing of procedures as "allowing our language to express the concept of [something]" (75)
+
+* A desideratum of "powerful" programming languages (75)
+
+  > One of the things we should demand from a powerful programming language is the **ability to build abstractions by assigning names to common patterns and then to work in terms of the abstractions directly**. Procedures provide this ability. This is why all but the most primitive programming languages include mechanisms for defining procedures.
+
+* **_Higher-order procedures_** and their motivatiopn (75)
+
+    > Often the same programming pattern will be used with a number of different procedures. To express such patterns as concepts we will need to construct procedures that can accept procedures as arguments or return procedures as values. **Procedures that manipulate procedures are called _higher-order procedures_**.
+
 #### 1.3.1 Procedures as Arguments (76-82)
 
 #### 1.3.2 Constructing Procedures Using `lambda` (83-88)
