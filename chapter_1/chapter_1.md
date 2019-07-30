@@ -1461,7 +1461,7 @@ July 2019
 
 * Exercise 1.25
 
-  *  This alternative implementation would not serve well because it would suffer in performance for very large numbers (because `fast-expt` would have sometimes have to calculate massive exponentials). See pg. 68 footnote 46 for how our original `expmod` implementation is able to handle finding very large primes.
+  *  This alternative implementation would not serve well because it would suffer in performance for very large numbers (because `fast-expt` would have sometimes have to calculate massive exponentials). See pg. 68 footnote 46 for an explanation of why our original `expmod` implementation is able to handle finding very large primes.
 
 * Exercise 1.26
 
