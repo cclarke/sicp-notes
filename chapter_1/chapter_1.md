@@ -1469,7 +1469,74 @@ July 2019
 
 * Exercise 1.27
 
-  * [TODO]
+  * Define a procedure `fermat-test-all`:
+
+    ```scheme
+    (define (fermat-test-all n)
+      (define (fermat-test-all-iter a)
+        (cond ((>= a n) (display "passed"))
+              ((try-it a) (fermat-test-all-iter (+ a 1)))
+              (else (display "fermat test failed"))))
+      (define (try-it a)
+        (= (expmod a n n) a))
+      (fermat-test-all-iter 1))
+    ```
+
+    For a given $n$, this procedure will display `passed` if $a^n$ is congruent to $a$ modulo $n$ for every $a < n$, and will display `fermat test failed` else. We can check our `fermat-test-all` procedure on the given the Carmichael numbers, and also verify that these numbers aren't primes using the `prime?` procedure defined in the text:
+
+    ```scheme
+    (fermat-test-all 561)
+    passed
+    ;Unspecified return value
+
+    (prime? 561)
+    ;Value: #f
+    ```
+
+    ```scheme
+    (fermat-test-all 1105)
+    passed
+    ;Unspecified return value
+
+    (prime? 1105)
+    ;Value: #f
+    ```
+
+    ```scheme
+    (fermat-test-all 1729)
+    passed
+    ;Unspecified return value
+
+    (prime? 1729)
+    ;Value: #f
+    ```
+
+    ```scheme
+    (fermat-test-all 2465)
+    passed
+    ;Unspecified return value
+
+    (prime? 2465)
+    ;Value: #f
+    ```
+
+    ```scheme
+    (fermat-test-all 2821)
+    passed
+    ;Unspecified return value
+
+    (prime? 2821)
+    ;Value: #f
+    ```
+
+    ```scheme
+    (fermat-test-all 6601)
+    passed
+    ;Unspecified return value
+
+    (prime? 6601)
+    ;Value: #f
+    ```
 
 * Exercise 1.28
 
