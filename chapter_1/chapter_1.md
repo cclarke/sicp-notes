@@ -1540,8 +1540,121 @@ July 2019
 
 * Exercise 1.28
 
-  * [TODO]
+  * Define an `expmod` procedure that makes used of an alternative squaring procedure that will detect nontrivial square roots of 1, called `square-detect-nontriv`:
 
+    ```scheme
+    (define (expmod-detect-nontriv base exp m)
+      (define (square-detect-nontriv x)
+        (define (square x) (* x x))
+        (if (and (not (= x 1))
+                 (not (= x (- m 1)))
+                 (= (remainder (square x) m) 1))
+             0 ;signal value
+             (square x)))
+      (cond ((= exp 0) 1)
+            ((even? exp)
+             (remainder
+              (square-detect-nontriv (expmod-detect-nontriv base (/ exp 2) m))
+              m))
+            (else
+             (remainder
+              (* base (expmod-detect-nontriv base (- exp 1) m))
+              m))))
+    ```
+
+    And now define a `miller-rabin-test` procedure that makes use of the `expmod-detect-nontriv` procedure:
+
+    ```scheme
+    (define (miller-rabin-test n)
+      (define (miller-rabin-test-iter a)
+        (cond ((>= a n) (display "passed"))
+              ((try-it a) (miller-rabin-test-iter (+ a 1)))
+              (else (display "miller-rabin test failed"))))
+      (define (try-it a)
+        (= (expmod-detect-nontriv a n n) a))
+      (miller-rabin-test-iter 1))
+    ```
+
+    Let's try out `miller-rabin-test` on some primes...
+
+    ```scheme
+    (miller-rabin-test 2)
+    passed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 7)
+    passed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 13)
+    passed
+    ;Unspecified return value
+    ```
+
+    ...some non-primes...
+
+    ```scheme
+    (miller-rabin-test 4)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 63)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 100)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ...and some tricky non-primes:
+
+
+    ```scheme
+    (miller-rabin-test 561)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 1105)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 1729)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 2465)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 2821)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    ```scheme
+    (miller-rabin-test 6601)
+    miller-rabin test failed
+    ;Unspecified return value
+    ```
+
+    So it seems like our `miller-rabin-test` procedure correctly implements the Miller-Rabin test.
 
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
 
