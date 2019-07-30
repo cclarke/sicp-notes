@@ -1658,4 +1658,10 @@ July 2019
 
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
 
-* [TODO]
+#### 1.3.1 Procedures as Arguments (76-82)
+
+#### 1.3.2 Constructing Procedures Using `lambda` (83-88)
+
+#### 1.3.3 Procedures as General Methods (89-96)
+
+#### 1.3.4 Procedures as Returned Values (97-106)
