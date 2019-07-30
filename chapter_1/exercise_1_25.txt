@@ -3,7 +3,7 @@
     (timed-prime-test cur)
     (if (and (< count n)) ; leverage lexical scoping here
         (search-iter (+ cur 2 )
-                     (if (fast-prime? cur 10)
+                     (if (fast-prime? cur 10) ; choice of 10 is somewhat arbitrary
                          (+ count 1)
                          count)
                      max-count)))
@@ -52,7 +52,7 @@
   (start-prime-test n (runtime)))
 
 (define (start-prime-test n start-time)
-  (if (fast-prime? n 10)
+  (if (fast-prime? n 10) ; choice of 10 is somewhat arbitrary
     (report-prime (- (runtime) start-time) n)))
 
 (define (report-prime elapsed-time n)
