@@ -1434,11 +1434,61 @@ July 2019
 
 * Exercise 1.24
 
-  * [TODO]
+  * We start by modifying `start-prime-test`, making use of the `fast-prime?` implementation from pp. 67-8 of the text:
+
+    ```scheme
+    (define (start-prime-test n start-time)
+      (if (fast-prime? n 10)
+        (report-prime (- (runtime) start-time) n)))
+
+    (define (fast-prime? n times)
+      (cond ((= times 0) true)
+            ((fermat-test n) (fast-prime? n (- times 1)))
+            (else false)))
+
+    (define (fermat-test n)
+      (define (try-it a)
+        (= (expmod a n n) a))
+      (try-it (+ 1 (random (- n 1)))))
+
+
+    (define (expmod base exp m)
+      (cond ((= exp 0) 1)
+            ((even? exp)
+             (remainder
+              (square (expmod base (/ exp 2) m))
+              m))
+            (else
+             (remainder
+              (* base (expmod base (- exp 1) m))
+              m))))
+    ```
 
 * Exercise 1.25
 
-  * [TODO]
+  * After doing some tests on many orders of magnitude of inputs to `get-first-n-primes-greater` implemented using `fast-prime?` it seems like the order of growth is... kind of logarithmic? E.g.,
+
+  ```scheme
+  (get-first-n-primes-greater #e1e100 3)
+
+  10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000267 *** 0.
+  10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000949 *** 0.
+  10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001243 *** 9.999999999990905e-3
+  ;Unspecified return value
+  ```
+
+  ```scheme
+  (get-first-n-primes-greater #e1e200 3)
+
+  100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000357 *** 2.9999999999986926e-2
+  100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000627 *** 3.0000000000001137e-2
+  100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000799 *** .01999999999999602
+  ;Unspecified return value
+  ```
+
+  At least, judging by the last prime found by each procedure call, where a prime close to 1e200 digits takes about twice as long as a prime close to 1e100.
+
+  (Maybe I don't have the implementation quite right here. This implementation is at [exercise_1_25.txt](exercise_1_25.txt).)
 
 * Exercise 1.26
 
