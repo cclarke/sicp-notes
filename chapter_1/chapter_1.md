@@ -1432,39 +1432,8 @@ July 2019
 
     So the execution times for corresponding primes are (roughly) anywhere between 1.6x and 3x faster for the alternative implementation of `find-divisor`. This is certainly faster, but it seems like there might be work going on under the hood in the computer that impacts the execution time of the programs, beyond just how we define our procedure.
 
+
 * Exercise 1.24
-
-  * We start by modifying `start-prime-test`, making use of the `fast-prime?` implementation from pp. 67-8 of the text:
-
-    ```scheme
-    (define (start-prime-test n start-time)
-      (if (fast-prime? n 10)
-        (report-prime (- (runtime) start-time) n)))
-
-    (define (fast-prime? n times)
-      (cond ((= times 0) true)
-            ((fermat-test n) (fast-prime? n (- times 1)))
-            (else false)))
-
-    (define (fermat-test n)
-      (define (try-it a)
-        (= (expmod a n n) a))
-      (try-it (+ 1 (random (- n 1)))))
-
-
-    (define (expmod base exp m)
-      (cond ((= exp 0) 1)
-            ((even? exp)
-             (remainder
-              (square (expmod base (/ exp 2) m))
-              m))
-            (else
-             (remainder
-              (* base (expmod base (- exp 1) m))
-              m))))
-    ```
-
-* Exercise 1.25
 
   * After doing some tests on many orders of magnitude of inputs to `get-first-n-primes-greater` implemented using `fast-prime?` it seems like the order of growth is... kind of logarithmic? E.g.,
 
@@ -1488,7 +1457,11 @@ July 2019
 
   At least, judging by the last prime found by each procedure call, where a prime close to 1e200 digits takes about twice as long as a prime close to 1e100.
 
-  (Maybe I don't have the implementation quite right here. This implementation is at [exercise_1_25.txt](exercise_1_25.txt).)
+  (Maybe I don't have the implementation quite right here. This implementation is at [exercise_1_24.txt](exercise_1_24.txt).)
+
+* Exercise 1.25
+
+  * This is due to the behavior of applicative-order evaluation: under the implementation of explicit multiplication, the number of times `(expmod base (/ exp 2) m)` is called grows like $\Theta(2^{\log n})$, which is equivalent to  $\Theta(n)$. (That is, there's a sort of branching binary tree structure to the recursive calls (i.e., a tree recursion) of expmod under this interpretation—and so even though that tree is only $\log n$ deep, each "level" of the tree has a number of nodes that is greater than the level above it by a factor of 2.) On the other hand, using a `square` procedure means that each recursive `expmod` procedure is only evaluated once at a given level in the recursion (and so it's a linear recursion), which keeps things to a $\Theta(\log n)$ order of growth (since the recursion is only $\log n$ steps deep).
 
 * Exercise 1.26
 
@@ -1501,6 +1474,7 @@ July 2019
 * Exercise 1.28
 
   * [TODO]
+
 
 ### 1.3 Formulating Abstractions with Higher-Order Procedures (pp. 74-106)
 
