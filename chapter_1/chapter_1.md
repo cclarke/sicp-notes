@@ -1465,7 +1465,7 @@ July 2019
 
 * Exercise 1.26
 
-  * This is due to the behavior of applicative-order evaluation: under the implementation of explicit multiplication, the number of times `(expmod base (/ exp 2) m)` is called grows like $\Theta(2^{\log n})$, which is equivalent to  $\Theta(n)$. (That is, there's a sort of branching binary tree structure to the recursive calls (i.e., a tree recursion) of expmod under this interpretation—and so even though that tree is only $\log n$ deep, each "level" of the tree has a number of nodes that is greater than the level above it by a factor of 2.) On the other hand, using a `square` procedure means that each recursive `expmod` procedure is only evaluated once at a given level in the recursion (and so it's a linear recursion), which keeps things to a $\Theta(\log n)$ order of growth (since the recursion is only $\log n$ steps deep).
+  * This is due to the behavior of applicative-order evaluation: under the implementation of explicit multiplication, the number of times `(expmod base (/ exp 2) m)` is called grows like $\Theta(2^{\log n})$, which is equivalent to  $\Theta(n)$. (That is, there's a sort of branching binary tree structure to the recursive calls (i.e., a tree recursion) of `expmod` under this interpretation—and so even though that tree is only $\log n$ deep, each "level" of the tree has a number of nodes that is greater than the level above it by a factor of 2.) On the other hand, using a `square` procedure means that each recursive `expmod` procedure is only evaluated once at a given level in the recursion (and so it's a linear recursion), which keeps things to a $\Theta(\log n)$ order of growth (since the recursion is only $\log n$ steps deep).
 
 * Exercise 1.27
 
