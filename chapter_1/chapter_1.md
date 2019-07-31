@@ -1686,7 +1686,28 @@ July 2019
 
 * Exercise 1.29
 
-  * [TODO]
+  * First, define the `sum` procedure as given on pp. 77-8 in the text:
+
+    ```scheme
+    (define (sum term a next b)
+      (if (> a b)
+          0
+          (+ (term a)
+             (sum term (next a) next b))))
+    ```
+
+    Now define a procedure `integrate-simpson` that implements numerical integration using Simpson's Rule:
+
+    ```scheme
+    (define (integrate-simpson f a b n)
+      (define (simpson-next k)
+        (+ a (* k (/ (- b a) n))))
+      (define (simpson-term k arg)
+        (cond ((or (= k 0) (= k n)) (f arg))
+              ((even? k) (* 4 (f arg)))
+              (else (* 2 (f arg)))))
+      (* (/ (- b a) n) (sum simpson-term a simpson-next b)))
+    ```
 
 * Exercise 1.30
 
