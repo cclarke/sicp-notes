@@ -1727,7 +1727,16 @@ July 2019
 
 * Exercise 1.30
 
-  * [TODO]
+  * We can define an iterative `sum` procedure as follows:
+
+    ```scheme
+    (define (sum term a next b)
+      (define (iter a result)
+        (if (> a b)
+            result
+            (iter (next a) (+ result (term a)))))
+      (iter (next a) 0))
+    ```
 
 * Exercise 1.31
 
