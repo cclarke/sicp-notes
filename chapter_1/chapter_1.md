@@ -1701,12 +1701,12 @@ July 2019
     ```scheme
     (define (integrate-simpson f a b n)
       (define (simpson-next k)
-        (+ a (* k (/ (- b a) n))))
-      (define (simpson-term k arg)
-        (cond ((or (= k 0) (= k n)) (f arg))
-              ((even? k) (* 4 (f arg)))
-              (else (* 2 (f arg)))))
-      (* (/ (- b a) n) (sum simpson-term a simpson-next b)))
+        (+ k 1))
+      (define (simpson-term k)
+        (cond ((or (= k 0) (= k n)) (f (+ a (* k (/ (- b a) n)))))
+              ((odd? k) (* 4 (f (+ a (* k (/ (- b a) n))))))
+              (else (* 2 (f (+ a (* k (/ (- b a) n))))))))
+      (* (/ (- b a) n 3) (sum simpson-term 0 simpson-next n)))
     ```
 
 * Exercise 1.30
