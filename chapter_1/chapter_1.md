@@ -1740,7 +1740,38 @@ July 2019
 
 * Exercise 1.31
 
-  * [TODO]
+  a. Define our `product` procedure as follows:
+
+    ```scheme
+    (define (product term a next b)
+      (if (> a b)
+          1
+          (* (term a)
+             (product term (next a) next b))))
+    ```
+
+    `factorial` can be implemented as follows:
+
+    ```scheme
+    (define (factorial n)
+      (define (identity x) x)
+      (define (inc x) (+ x 1))
+      (product identity 1 inc n))
+    ```
+
+    We can implement a procedure to approximate $\pi$—call it `pi-approx`—as follows:
+
+    ```scheme
+    (define (pi-approx n)
+      (define (next-largest-even x)
+        (if (even? x) (+ x 2) (+ x 1)))
+      (define (next-largest-odd x)
+        (if (odd? x) (+ x 2) (+ x 1)))
+      (define (frac-term m)
+        (/ (next-largest-even m) (next-largest-odd m)))
+      (define (inc x) (+ x 1))
+      (* 4.0 (product frac-term 1 inc n)))
+    ```
 
 * Exercise 1.32
 
