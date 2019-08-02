@@ -1905,6 +1905,9 @@ July 2019
   >
   > ``(define plus4 (lambda (x) (+ x 4)))``
 
+* Can read `lambda` expressions like (for the example of `(lambda (x) (+ x 4)))`): "The procedure (`lambda`) of an argument `x` (`x`) that adds (`+`) `x` (`x`) and `4` (`4`)" (84)
+
+* Since `lambda` expressions have procedures as their values, they can be used as the operators of combinations (or, more generally, in any context where we would normally use a procedure name) (84)
 
 ##### Using `let` to create local variables (85-8)
 
