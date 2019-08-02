@@ -1735,7 +1735,7 @@ July 2019
         (if (> a b)
             result
             (iter (next a) (+ result (term a)))))
-      (iter (next a) 0))
+      (iter a 0))
     ```
 
 * Exercise 1.31
@@ -1773,7 +1773,40 @@ July 2019
       (* 4.0 (product frac-term 1 inc n)))
     ```
 
-  b. [TODO]
+    Looking at the value of `pi-approx` with an input value of $n = 10000$ can help us validate our implementation:
+
+    ```scheme
+    (pi-approx 10000)
+
+    ;Value: 3.1417497057380523
+    ```
+
+  b. Implement an iterative `product` procedure as follows:
+
+    ```scheme
+    (define (product term a next b)
+      (define (iter a result)
+        (if (> a b)
+            result
+            (iter (next a) (* result (term a)))))
+      (iter a 1))
+    ```
+
+    Testing the iterative implementation of `product` with a couple procedures and input values whose corresponding output values we know already:
+
+    ```scheme
+    (factorial 5)
+
+    ;Value: 120
+    ```
+
+    ```scheme
+    (pi-approx 10000)
+
+    ;Value: 3.1417497057380523
+    ```
+
+    And so we see we get back exactly the same values as we did with the recursive implementation of `product`.
 
 * Exercise 1.32
 
