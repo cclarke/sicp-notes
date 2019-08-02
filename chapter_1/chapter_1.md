@@ -2251,7 +2251,7 @@ July 2019
                           c))))
     ```
 
-    And let's test out our `cubic` procedure:
+    And let's test out our `cubic` procedure as an input to `newtons-method`:
 
     ```scheme
     (newtons-method (cubic 1 1 0) 3)
