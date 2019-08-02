@@ -2210,6 +2210,63 @@ July 2019
 
 ##### Exercises (103-6)
 
+* Exercises 1.40
+
+  * Recall the definition of `newtons-method` from pp. 99-100 (as well as the `fixed-point` procedure from pg. 63):
+
+    ```scheme
+    (define tolerance 0.00001)
+    (define (fixed-point f first-guess)
+      (define (close-enough? v1 v2)
+        (< (abs (- v1 v2))
+           tolerance))
+       (define (try guess)
+        (let ((next (f guess)))
+          (if (close-enough? guess next)
+            next
+            (try next))))
+      (try first-guess))
+
+    (define (deriv g)
+      (lambda (x) (/ (- (g (+ x dx)) (g x)) dx)))
+
+    (define dx 0.00001)
+
+    (define (newton-transform g)
+      (lambda (x) (- x (/ (g x) ((deriv g) x)))))
+
+    (define (newtons-method g guess)
+      (fixed-point (newton-transform g) guess))
+    ```
+
+    Now define `cubic`:
+
+    ```scheme
+    (define (cubic a b c)
+      (let ((cube (lambda (x) (* x x x )))
+            (square (lambda (x) (* x x))))
+           (lambda (x) (+ (cube x)
+                          (* a (square x))
+                          (* b x)
+                          c))))
+    ```
+
+    And let's test out our `cubic` procedure:
+
+    ```scheme
+    (newtons-method (cubic 1 1 0) 3)
+
+    ;Value: 3.636171668439735e-11
+    ```
+
+    ```scheme
+    (newtons-method (cubic 1 1 1) 1)
+
+    ;Value: -.9999999999997796
+    ```
+
+    These (approximately correct) values check out.
+
 * Exercises 1.41
 
   * [TODO]
