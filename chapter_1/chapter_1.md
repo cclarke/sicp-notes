@@ -1868,6 +1868,17 @@ July 2019
       (filtered-accumulate prime? + 0 square a inc b))
     ```
 
+  **b.** Define `product-lt-rel-prime` as follows (making use of the `gcd` procedure defined on pg. 63 of the text):
+
+    ```scheme
+    (define (product-lt-rel-prime n)
+      (define (rel-prime? i)
+        (= (gcd i n) 1))
+      (define (identity x) x)
+      (define (inc x) (+ x 1))
+      (filtered-accumulate rel-prime? * 1 identity 1 inc (- n 1)))
+    ```
+
 #### 1.3.2 Constructing Procedures Using `lambda` (83-88)
 
 #### 1.3.3 Procedures as General Methods (89-96)
