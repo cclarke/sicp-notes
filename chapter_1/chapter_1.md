@@ -2205,6 +2205,7 @@ July 2019
   >   * They may be returned as the results of procedures.
   >   * They may be included in data structures.
   >
+  >
   > Lisp, unlike other common programming languages, awards procedures full first-class status. This poses challenges for efficient implementation, but the resulting gain in expressive power is enormous.
 
 
