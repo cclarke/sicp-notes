@@ -1972,4 +1972,30 @@ July 2019
 
 #### 1.3.3 Procedures as General Methods (89-96)
 
+##### Finding roots of equations by the half-interval method (89-91)
+
+##### Finding fixed points of functions (92-4)
+
+##### Exercises (94-6)
+
+* Exercise 1.35
+
+  * [TODO]
+
+* Exercise 1.36
+
+  * [TODO]
+
+* Exercise 1.37
+
+  * [TODO]
+
+* Exercise 1.38
+
+  * [TODO]
+
+* Exercise 1.39
+
+  * [TODO]
+
 #### 1.3.4 Procedures as Returned Values (97-106)
