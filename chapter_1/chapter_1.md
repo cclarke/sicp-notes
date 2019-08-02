@@ -2172,6 +2172,13 @@ July 2019
 
 * Exercise 1.39
 
-  * [TODO]
+  * Define the `tan-cf` procedure as follows:
+
+    ```scheme
+    (define (tan-cf x k)
+      (cont-frac (lambda (i) (if (= i 1) x (* -1 x x)))
+                 (lambda (i) (- (* i 2) 1.0))
+                             k))
+    ```
 
 #### 1.3.4 Procedures as Returned Values (97-106)
