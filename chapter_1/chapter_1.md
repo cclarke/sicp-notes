@@ -1723,7 +1723,7 @@ July 2019
     ;Value: 1/4
     ```
 
-    So `integrate-simpson` gives answers that are exactly correct. Compare this to the results of the `integral` procedure defined on pg. 79 of the text, where we only ever get approximately correct (even if very, very accurate) solutions. This is likely due to how Scheme represents floating point numbers vs. how it represents rational numbers (and how the procedures we've defined make use of these various representations of numbers).
+    So `integrate-simpson` gives (and _can_ give) answers that are exactly correct. Compare this to the results of the `integral` procedure defined on pg. 79 of the text, where we only ever get approximately correct (even if very, very accurate) solutions. This is likely due to how Scheme represents floating point numbers vs. how it represents rational numbers (and how the procedures we've defined make use of these various representations of numbers).
 
 * Exercise 1.30
 
@@ -1772,6 +1772,8 @@ July 2019
       (define (inc x) (+ x 1))
       (* 4.0 (product frac-term 1 inc n)))
     ```
+
+  b. [TODO]
 
 * Exercise 1.32
 
