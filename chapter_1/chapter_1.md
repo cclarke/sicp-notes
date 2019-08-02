@@ -1911,6 +1911,43 @@ July 2019
 
 ##### Using `let` to create local variables (85-8)
 
+* `lambda` can also be used to create **local variables**—and **so can the special form `let`** (85)
+
+  * The general form of `let`: (86)
+
+    ```scheme
+    (let (([var_1] [exp_1])
+          ([var_2] [exp_2])
+          ...
+          ([var_n] [exp_n]))
+      [body])
+
+    ```
+
+    Under the hood, this is interpreted as alternate syntax for an expression involving `lambda`: (86-7)
+
+    ```scheme
+    ((lambda ([var_1] ... [var_n])
+      [body])
+    [exp_1]
+    ...
+    [exp_n])
+    ```
+
+  * A point made in the book about how `let` is alternate syntax for a certain kind of expression involving `lambda`: (87)
+
+    > **No new mechanism is required in the interpreter in order to provide local variables. A `let` expression is simply syntactic sugar for the underlying `lambda` application.**
+
+  * From the equivalence we can see that **the scope of a variable specified in a `let` expression is the body of the `let`** (87)
+
+    * What this implies (87-8)
+
+      * `let` allows one to bind variables as locally as possible to where they are to be used
+
+      * The variables' values are computed outside the `let`, which matters when the expressions that provide the values for the local variables depend on variables with the same names as the local variables themselves
+
+  * Could in principle use internal definitions to get the same effect as a `let`—but as a matter of style, the authors prefer to use internal `define` statements for internal procedures only (88)  
+
 ##### Exercises (88)
 
 * Exercise 1.34
