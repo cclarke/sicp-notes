@@ -2183,9 +2183,30 @@ July 2019
 
 #### 1.3.4 Procedures as Returned Values (97-106)
 
+* A note about designing procedures (98)
+
+  > In general, there are many ways to formulate a process as a procedure. Experienced programmers know how to choose procedural formulations that are particularly perspicuous, and where useful elements of the process are exposed as separate entities that can be reused in other applications.
+
+
 ##### Newton's method (98-100)
 
 ##### Abstractions and first-class procedures (101-3)
+
+* Just adding a couple good paragraphs here verbatim (101-2)
+
+  > We began Section 1.3 with the observation that compound procedures are a crucial abstraction mechanism, because they permit us to express general methods of computing as explicit elements in our programming language. Now we've seen how higher-order procedures permit us to manipulate these general methods to create further abstractions.
+  >
+  >   As programmers, we should be alert to opportunities to identify the underlying abstractions in our programs and to build upon them and generalize them to create more powerful abstractions. This is not to say that one should always write programs in the most abstract way possible; expert programmers know how to choose the level of abstraction appropriate to their task. But it is important to be able to think in terms of these abstractions, so that we can be ready to apply them in new contexts. The significance of higher-order procedures is that they enable us to represent these abstractions explicitly as elements in our programming language, so that they can be handled just like other computational elements.
+  >
+  >   In general, programming languages impose restrictions on the ways in which computational elements can be manipulated. Elements with the fewest restrictions are said to have _first-class_ status. Some of the "rights and privileges" of first-class elements are:
+  >
+  >   * They may be named variables.
+  >   * They may be passed as arguments to procedures.
+  >   * They may be returned as the results of procedures.
+  >   * They may be included in data structures.
+  >
+  > Lisp, unlike other common programming languages, awards procedures full first-class status. This poses challenges for efficient implementation, but the resulting gain in expressive power is enormous.
+
 
 ##### Exercises (103-6)
 
