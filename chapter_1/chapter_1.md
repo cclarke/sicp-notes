@@ -1881,8 +1881,6 @@ July 2019
 
 #### 1.3.2 Constructing Procedures Using `lambda` (83-88)
 
-##### Using `let` to create local variables
-
 * As opposed to naming procedures, can use the **special form `lambda`** to specify "the procedure that returns..." (83)
 
   * General structure of the lambda special form: (84)
@@ -1906,6 +1904,9 @@ July 2019
   > is equivalent to
   >
   > ``(define plus4 (lambda (x) (+ x 4)))``
+
+
+##### Using `let` to create local variables
 
 ##### Exercises (88)
 
