@@ -1998,6 +1998,14 @@ July 2019
       (try first-guess))
     ```
 
+    Now compute the golden ratio $\phi$ using a fixed point transformation of $f(x) = 1 + \frac{1}{x}$:
+
+    ```scheme
+    (fixed-point (lambda (x) (+ 1 (/ 1 x))) 2.0)
+
+    ;Value: 1.6180327868852458
+    ```
+
 * Exercise 1.36
 
   * [TODO]
