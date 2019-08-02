@@ -1906,7 +1906,7 @@ July 2019
   > ``(define plus4 (lambda (x) (+ x 4)))``
 
 
-##### Using `let` to create local variables
+##### Using `let` to create local variables (85-8)
 
 ##### Exercises (88)
 
