@@ -1810,7 +1810,40 @@ July 2019
 
 * Exercise 1.32
 
-  * [TODO]
+  a. Define a procedure `accumulate` as follows:
+
+    ```scheme
+    (define (accumulate combiner null-value term a next b)
+      (if (> a b)
+          null-value
+          (combiner (term a)
+             (accumulate combiner null-value term (next a) next b))))
+    ```
+
+    Now define `sum` in terms of `accumulate`:
+
+    ```scheme
+    (define (sum term a next b)
+      (accumulate + 0 term a next b))
+    ```
+
+    And `product`
+
+    ```scheme
+    (define (product term a next b)
+      (accumulate * 1 term a next b))
+    ````
+
+  b. Define an iterative `accumulate` procedure:
+
+    ```scheme
+    (define (accumulate combiner null-value term a next b)
+      (define (iter a result)
+        (if (> a b)
+            result
+            (iter (next a) (combiner result (term a)))))
+      (iter a null-value))
+    ```
 
 * Exercise 1.33
 
