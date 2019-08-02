@@ -2089,7 +2089,64 @@ July 2019
 
 * Exercise 1.37
 
-  * [TODO]
+  **a.** Define `count-frac` as follows:
+
+    ```scheme
+    (define (cont-frac n d k)
+      (define (recurse i)
+        (if (> i k)
+            0
+            (/ (n i) (+ (d i) (recurse (+ i 1))))))
+      (recurse 1))
+    ```
+
+    Now let's check the procedure by approximating $\frac{1}{\phi}$ using the procedure given in the text on pg. 95 (using `10` as our value for `k`):
+
+    ```scheme
+    (cont-frac (lambda (i) 1.0)
+               (lambda (i) 1.0)
+               10)
+
+    ;Value: .6179775280898876
+    ```
+
+    And we see that the reciprocal of the value obtained is approximately equal to the golden ratio:
+
+    ```scheme
+    (/ 1 .6179775280898876)
+
+    ;Value: 1.6181818181818184
+    ```
+
+    We can get an approximation that's accurate to four decimal places by setting `k` equal to `12`:
+
+    ```scheme
+    (/ 1
+       (cont-frac (lambda (i) 1.0)
+                  (lambda (i) 1.0)
+                  12))
+    ```
+
+  **b.** Define an iterative `cont-frac` procedure as follows:
+
+    ```scheme
+    (define (cont-frac n d k)
+      (define (iter i result)
+        (if (< i 1)
+            result
+            (iter (- i 1) (/ (n i) (+ (d i) result)))))
+      (iter k 0))
+    ```
+
+    And let's check this implementation against a known answer from part (a):
+
+    ```scheme
+    (cont-frac (lambda (i) 1.0)
+               (lambda (i) 1.0)
+               10)
+
+    ;Value: .6179775280898876     
+    ```
 
 * Exercise 1.38
 
