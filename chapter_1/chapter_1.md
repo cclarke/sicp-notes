@@ -1900,9 +1900,12 @@ July 2019
 * Relationship of `lambda` to `define` (84)
 
   > The resulting procedure [created by the _lambda_ special form] is just as much a procedure as one that is created using _define_. **The only difference is that it has not been associated with any name in the environment**. In fact,
+  >
   > `(define (plus4 x) (+ x 4))`
+  >
   > is equivalent to
-  > (define plus4 (lambda (x) (+ x 4)))
+  >
+  > ``(define plus4 (lambda (x) (+ x 4)))``
 
 ##### Exercises (88)
 
