@@ -2362,7 +2362,28 @@ July 2019
 
 * Exercises 1.44
 
-  * [TODO]
+  * First we'll define a "global" `dx`:
+
+    ```scheme
+    (define dx 0.00001)
+    ```
+
+    Now define our `smooth` procedure:
+
+    ```scheme
+    (define (smooth f)
+      (lambda (x) (/ (+ (f (- x dx))
+                        (f x)
+                        (f (+ x dx)))
+                     3)))
+    ```
+
+    We can define a procedure for $n$-fold smoothing—call it `n-fold-smooth`—as follows, making use of the `repeated` procedure from Exercise 1.43:
+
+    ```scheme
+    (define (n-fold-smooth f n)
+      ((repeated smooth n)) f)
+    ```
 
 * Exercises 1.45
 
