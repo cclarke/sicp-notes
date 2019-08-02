@@ -2182,3 +2182,33 @@ July 2019
     ```
 
 #### 1.3.4 Procedures as Returned Values (97-106)
+
+##### Newton's method (98-100)
+
+##### Abstractions and first-class procedures (101-3)
+
+##### Exercises (103-6)
+
+* Exercises 1.41
+
+  * [TODO]
+
+* Exercises 1.42
+
+  * [TODO]
+
+* Exercises 1.43
+
+  * [TODO]
+
+* Exercises 1.44
+
+  * [TODO]
+
+* Exercises 1.45
+
+  * [TODO]
+
+* Exercises 1.46
+
+  * [TODO]
