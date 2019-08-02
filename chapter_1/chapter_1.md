@@ -2269,7 +2269,38 @@ July 2019
 
 * Exercises 1.41
 
-  * [TODO]
+  * Define our `double` procedure as follows:
+
+    ```scheme
+    (define (double f)
+      (lambda (x) (f (f x))))
+    ```
+
+    And let's test out our procedure on a simple `inc` procedure:
+
+    ```scheme
+    (define (inc x) (+ x 1))
+
+    ((double inc) 1)
+
+    ;Value: 3
+    ```
+
+    The value returned by
+
+    ```scheme
+    (((double (double double)) inc) 5)
+    ```
+
+    is 21:
+
+    ```scheme
+    (((double (double double)) inc) 5)
+
+    ;Value: 21
+    ```
+
+    This is because `(double double)` is the procedure that takes a procedure of one argument as an argument and returns a procedure that applies the original procedure four times, and so `(double (double double))` is a procedure that takes a procedure of one argument and returns a procedure that applies that original procedure 16 times (i.e. (lambda (x) ((double double) ((double double) x)))).
 
 * Exercises 1.42
 
