@@ -1883,6 +1883,27 @@ July 2019
 
 ##### Using `let` to create local variables
 
+* As opposed to naming procedures, can use the **special form `lambda`** to specify "the procedure that returns..." (83)
+
+  * General structure of the lambda special form: (84)
+
+    ```scheme
+    (lambda ([formal parameters]) [body])
+    ```
+
+    e.g. (from pg. 84 of the text),
+
+    ```scheme
+    (lambda (x y z) (+ x y (square z)))
+    ```
+
+* Relationship of `lambda` to `define` (84)
+
+  > The resulting procedure [created by the _lambda_ special form] is just as much a procedure as one that is created using _define_. **The only difference is that it has not been associated with any name in the environment**. In fact,
+  > `(define (plus4 x) (+ x 4))`
+  > is equivalent to
+  > (define plus4 (lambda (x) (+ x 4)))
+
 ##### Exercises (88)
 
 * Exercise 1.34
