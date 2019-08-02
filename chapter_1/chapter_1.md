@@ -1881,6 +1881,14 @@ July 2019
 
 #### 1.3.2 Constructing Procedures Using `lambda` (83-88)
 
+##### Using `let` to create local variables
+
+##### Exercises (88)
+
+* Exercise 1.34
+
+  * [TODO]
+
 #### 1.3.3 Procedures as General Methods (89-96)
 
 #### 1.3.4 Procedures as Returned Values (97-106)
