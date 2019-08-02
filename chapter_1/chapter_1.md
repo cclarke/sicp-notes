@@ -1952,7 +1952,23 @@ July 2019
 
 * Exercise 1.34
 
-  * [TODO]
+  * The process evolves as follows:
+
+    ```scheme
+    (f f)
+
+    (f 2)
+
+    (2 2)
+    ```
+
+    Which throws an error:
+
+    ```scheme
+    ;The object 2 is not applicable.
+    ```
+
+    This error arises because in `(2 2)`, the interpreter tries to treat `2` as the name of an operator in a combination, which can't happen given how `2` is defined in the environment.
 
 #### 1.3.3 Procedures as General Methods (89-96)
 
