@@ -2300,7 +2300,7 @@ July 2019
     ;Value: 21
     ```
 
-    This is because `(double double)` is the procedure that takes a procedure of one argument as an argument and returns a procedure that applies the original procedure four times, and so `(double (double double))` is a procedure that takes a procedure of one argument and returns a procedure that applies that original procedure 16 times (i.e. (lambda (x) ((double double) ((double double) x)))).
+    This is because `(double double)` is the procedure that takes a procedure of one argument as an argument and returns a procedure that applies the original procedure four times, and so `(double (double double))` is a procedure that takes a procedure of one argument and returns a procedure that applies that original procedure 16 times (i.e., `(lambda (x) ((double double) ((double double) x)))`).
 
 * Exercises 1.42
 
