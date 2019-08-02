@@ -1847,7 +1847,26 @@ July 2019
 
 * Exercise 1.33
 
-  * [TODO]
+  **a.** Define `filtered-accumulate` as follows:
+
+    ```scheme
+    (define (filtered-accumulate predicate combiner null-value term a next b)
+      (if (> a b)
+          null-value
+          (combiner (if (predicate a) (term a) null-value)
+             (filtered-accumulate predicate combiner null-value term (next a) next b))))
+    ```
+
+    Now define `ssq-primes` as follows (making use of the `prime?` procedure from pp. 65-6 of the text):
+
+    ```scheme
+    (define (square x) (* x x))
+
+    (define (inc x) (+ x 1))
+
+    (define (ssq-primes a b)
+      (filtered-accumulate prime? + 0 square a inc b))
+    ```
 
 #### 1.3.2 Constructing Procedures Using `lambda` (83-88)
 
