@@ -2304,7 +2304,23 @@ July 2019
 
 * Exercises 1.42
 
-  * [TODO]
+  * Define our `compose` procedure as follows:
+
+    ```scheme
+    (define (compose f g)
+      (lambda (x) (f (g x))))
+    ```
+
+    And verify:
+
+    ```scheme
+    (define (square x) (* x x))
+    (define (inc x) (+ x 1))
+
+    ((compose square inc) 6)
+
+    ;Value: 49
+    ```
 
 * Exercises 1.43
 
