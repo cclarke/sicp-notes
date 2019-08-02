@@ -2150,7 +2150,25 @@ July 2019
 
 * Exercise 1.38
 
-  * [TODO]
+  * Define a procedure `approx-e` as follows:
+
+    ```scheme
+    (define (approx-e k)
+      (define (n i) 1.0)
+      (define (d i)
+        (if (= (remainder i 3) 2)
+            (* 2.0 (/ (+ i 1) 3))
+            1.0))
+      (+ 2 (cont-frac n d k)))
+    ```
+
+    And test it out:
+
+    ```scheme
+    (approx-e 100)
+
+    ;Value: 2.7182818284590455
+    ```
 
 * Exercise 1.39
 
