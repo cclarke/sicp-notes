@@ -1827,7 +1827,7 @@ July 2019
       (accumulate + 0 term a next b))
     ```
 
-    And `product`
+    And `product`:
 
     ```scheme
     (define (product term a next b)
