@@ -2324,7 +2324,41 @@ July 2019
 
 * Exercises 1.43
 
-  * [TODO]
+  * Define our `repeated` procedure as follows:
+
+    ```scheme
+    (define (repeated f n)
+      (lambda (x) (if (< n 1)
+                  x
+                  ((compose f (repeated f (- n 1))) x))))
+    ```
+
+    And some examples:
+
+    ```scheme
+    (define (inc x) (+ x 1))
+    ((repeated inc 10) 0)
+
+    ;Value: 10
+    ```
+
+    ```scheme
+    ((repeated (lambda (x) (* x x)) 2) 2)
+
+    ;Value: 16
+    ```
+
+    ```scheme
+    ((repeated (lambda (x) (* x x)) 2) 3)
+
+    ;Value: 81
+    ```
+
+    ```scheme
+    ((repeated (lambda (x) (* x x)) 3) 2)
+
+    ;Value: 256
+    ```
 
 * Exercises 1.44
 
