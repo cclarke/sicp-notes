@@ -1976,6 +1976,8 @@ July 2019
 
 ##### Finding fixed points of functions (92-4)
 
+* (There's a note about _average damping_ on pg. 94. This is my first time learning about this idea!)
+
 ##### Exercises (94-6)
 
 * Exercise 1.35
