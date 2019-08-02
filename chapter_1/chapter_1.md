@@ -1740,7 +1740,7 @@ July 2019
 
 * Exercise 1.31
 
-  a. Define our `product` procedure as follows:
+  **a.** Define our `product` procedure as follows:
 
     ```scheme
     (define (product term a next b)
@@ -1781,7 +1781,7 @@ July 2019
     ;Value: 3.1417497057380523
     ```
 
-  b. Implement an iterative `product` procedure as follows:
+  **b.** Implement an iterative `product` procedure as follows:
 
     ```scheme
     (define (product term a next b)
@@ -1810,7 +1810,7 @@ July 2019
 
 * Exercise 1.32
 
-  a. Define a procedure `accumulate` as follows:
+  **a.** Define a procedure `accumulate` as follows:
 
     ```scheme
     (define (accumulate combiner null-value term a next b)
@@ -1834,7 +1834,7 @@ July 2019
       (accumulate * 1 term a next b))
     ````
 
-  b. Define an iterative `accumulate` procedure:
+  **b.** Define an iterative `accumulate` procedure:
 
     ```scheme
     (define (accumulate combiner null-value term a next b)
