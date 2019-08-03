@@ -74,6 +74,14 @@ August 2019
   >
   >   **The basic idea of data abstraction is to structure the programs that are to use compound data objects so that they operate on "abstract data."** That is, our programs should use data in such a way as to make no assumptions about the data that are not strictly necessary for performing the task at hand. At the same time, a "concrete" data representation is defined independent of the programs that use the data. The interface between these two parts of our system will be a set of procedures, called **_selectors_ and _constructors_**, that implement the abstract data in terms of the concrete representation.
 
+#### 2.1.1 Example: Arithmetic Operations for Rational Numbers (113-118)
+
+#### 2.1.2 Abstraction Barriers (118-122)
+
+#### 2.1.3 What is Meant by Data? (122-126)
+
+#### 2.1.4 Extended Exercise: Interval Arithmetic (126-132)
+
 ### 2.2 Hierarchical Data and the Closure Property (pp. 132-192)
 
 ### 2.3 Symbolic Data (pp. 192-229)
