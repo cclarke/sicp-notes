@@ -136,6 +136,16 @@ August 2019
 
 #### 2.1.2 Abstraction Barriers (118-122)
 
+##### Exercise (121-2)
+
+* Exercise 2.2
+
+  * [TODO]
+
+* Exercise 2.3
+
+  * [TODO]
+
 #### 2.1.3 What is Meant by Data? (122-126)
 
 #### 2.1.4 Extended Exercise: Interval Arithmetic (126-132)
