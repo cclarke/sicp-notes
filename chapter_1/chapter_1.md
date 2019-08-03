@@ -2387,7 +2387,71 @@ July 2019
 
 * Exercises 1.45
 
-  * [TODO]
+  * First define an average damping procedure:
+
+    ```scheme
+    (define (average-damp f)
+      (lambda (x) (/ (+ x (f x))
+                     2)))
+    ```
+
+    Now recall `fixed-point` from pg. 92 of the text:
+
+    ```scheme
+    (define tolerance 0.00001)
+    (define (fixed-point f first-guess)
+      (define (close-enough? v1 v2)
+        (< (abs (- v1 v2))
+           tolerance))
+       (define (try guess)
+        (let ((next (f guess)))
+          (if (close-enough? guess next)
+            next
+            (try next))))
+      (try first-guess))
+    ```
+
+    And our `compose` and `repeated` procedures from Exercises 1.42 and 1.43, respectively:
+
+    ```scheme
+    (define (compose f g)
+      (lambda (x) (f (g x))))
+
+    (define (repeated f n)
+          (lambda (x) (if (< n 1)
+                      x
+                      ((compose f (repeated f (- n 1))) x))))
+    ```
+
+    Now define the `nth-root` procedure in terms of `fixed-point`, `repeated`, and `average-damp`. We'll try out average damping $2 \log x$ (actually, $\lfloor 2 \log x \rfloor$) times:
+
+    ```scheme
+    (define (nth-root x n)
+      (fixed-point ((repeated average-damp (* 2 (log n))) (lambda (y) (/ x (expt y (- n 1))))) 1.0))
+    ```
+
+    This implementation doesn't do too bad:
+
+    ```scheme
+    (nth-root 16 4)
+
+    ;Value: 2.0000000000021965
+    ```
+
+    ```scheme
+    (expt (nth-root 16 20) 20)
+
+    16.000801971658756
+    ```
+
+    We can also test out a value of `x` that's less than $0$:
+
+    ```scheme
+    (expt (nth-root 0.0001 24) 24)
+
+    ;Value: 1.0001861673128096e-4
+    ```
+
 
 * Exercises 1.46
 
