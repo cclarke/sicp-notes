@@ -2454,7 +2454,7 @@ July 2019
 
 * Exercises 1.46
 
-  * Define `iterative-improve` as follows:
+  * Define `iterative-improve` as follows (this is a cleaner implementation than the original one I'd come up with, which did not define an `iter` procedure internal to the `lambda` special form; source [here](http://community.schemewiki.org/?sicp-ex-1.46)):
 
     ```scheme
     (define (iterative-improve good-enough? improve)
@@ -2483,3 +2483,65 @@ July 2019
         (/ (+ a b) 2))
       ((iterative-improve (lambda (y) (close-enough? y x)) (lambda (y) (improve y x))) 1.0)) ; could also probably make use of lexical scoping here
     ```
+
+    And let's check that our implementation of `sqrt` works:
+
+    ```scheme
+    (sqrt 1)
+
+    ;Value: 1.
+    ```
+
+    ```scheme
+    (sqrt 2)
+
+    ;Value: 1.4142156862745097
+    ```
+
+    ```scheme
+    (sqrt 100)
+
+    ;Value: 10.000000000139897
+    ```
+
+    Now let's implement `fixed-point` using `iterative-improve`. Starting with the original implementation from pg. 92 of the text:
+
+    ```scheme
+    (define tolerance 0.00001)
+    (define (fixed-point f first-guess)
+      (define (close-enough? v1 v2)
+        (< (abs (- v1 v2))
+           tolerance))
+       (define (try guess)
+        (let ((next (f guess)))
+          (if (close-enough? guess next)
+            next
+            (try next))))
+      (try first-guess))
+    ```
+
+    We can re-implement as follows:
+
+    ```scheme
+    (define (fixed-point f first-guess)
+      (define (close-enough? guess)
+        (< (abs (- guess (f guess)))
+           0.00001))
+       ((iterative-improve close-enough? f) first-guess))
+    ```
+
+    This finds some fixed points we're familiar with from pp. 92-3 of the text:
+
+    ```scheme
+    (fixed-point cos 1.0)
+
+    ;Value: .7390893414033928
+    ```
+
+    ```scheme
+    (fixed-point (lambda (y) (+ (sin y) (cos y))) 1.0)
+
+    ;Value: 1.2587228743052672
+    ```
+
+    (This implementation will still suffer from issues arising in the absence of average damping, but the implementation above illustrates the general point. Average damping could be incorporated by making use of the `average-damp` procedure defined in exercise 1.45, and passing `(average-damp f)` to `iterative-improve` as opposed to `f` above.)
