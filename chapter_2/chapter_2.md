@@ -118,6 +118,22 @@ August 2019
 
 ##### Representing rational numbers (116-8)
 
+* Pairs are a natural way to represent the data associated with rational numbers (119)
+
+  * The implementation that the authors give of `make-rat`, `numer`, and `denom` are then in terms of `cons`, `car`, and `cdr`, respectively
+
+##### Exercises (118)
+
+* Exercise 2.1
+
+  * Define the alternative `make-rat` as follows:
+
+    ```scheme
+    (define (make-rat a b)
+      (cond ((positive? (* a b)) (cons (abs a) (abs b))) ; this is the most parsimonious test I could think of but there's likely a more performant one
+            (else (cons (-(abs a)) (abs b)))))
+    ```
+
 #### 2.1.2 Abstraction Barriers (118-122)
 
 #### 2.1.3 What is Meant by Data? (122-126)
