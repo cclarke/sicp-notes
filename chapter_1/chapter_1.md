@@ -2481,5 +2481,5 @@ July 2019
         (average guess (/ x guess)))
       (define (average a b)
         (/ (+ a b) 2))
-      ((iterative-improve (lambda (y) (close-enough? y x)) (lambda (y) (improve y x))) 1.0))
+      ((iterative-improve (lambda (y) (close-enough? y x)) (lambda (y) (improve y x))) 1.0)) ; could also probably make use of lexical scoping here
     ```
