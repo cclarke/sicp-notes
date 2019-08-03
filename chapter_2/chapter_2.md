@@ -14,6 +14,58 @@ August 2019
 
 ## 2. Building Abstractions with Data (pp. 107-293)
 
+* A note on higher-order procedures, referencing chapter 1 (107-8)
+
+  > We also saw that higher-order procedures enhance the power of our language by enabling us to manipulate, **and thereby to reason in terms of**, general methods of computation.
+
+* The focus of chapter 2 is on **data that's more complex than the simple numerical data we used in chapter 1** (108)
+
+* Comparative point about the focus of chapter 2 (vs. the focus of chapter 1) (108)
+
+  > Thus, whereas our focus in chapter 1 was on building abstractions by combining procedures to form compound procedures, **we turn in this chapter to another key aspect of any programming language: the means it provides for building abstractions by combining data objects to form _compound data_**.
+
+* Why compound data are desirable in a programming language (108)
+
+  > Why do we want compound data in a programming language? For the same reasons that we want compound procedures: **to elevate the conceptual level at which we can design our programs, to increase the modularity of our designs, and to enhance the expressive power of our language**. Just as the ability to define procedures enables us to deal with processes at a higher conceptual level than that of the primitive operations of the language, **the ability to construct compound data objects enables us to deal with data at a higher conceptual level than that of the primitive data objects of the language**.
+
+* A note about designing **_compound data objects_** that are consistent with how we conceptualize the things in the world that these objects are meant to represent (e.g., pairing together a numerator and a denominator as a compound data object to represent rational numbers) (109)
+
+* A note about how compound data facilitate the design methodology of **_data abstraction_** (109)
+
+  > The use of compound data also enables us to increase the modularity of our programs. If we can manipulate rational numbers directly as objects in their own right, then we can separate the part of our program that deals with rational numbers per se from the details of how rational numbers may be represented as pairs of integers. **The general technique of isolating the parts of a program that deal with how data objects are represented from the parts of a program that deal with how data objects are used is a powerful design methodology called _data abstraction_.**
+
+* The example of a `linear-combination` procedure is given to illustrate how expressive power of the language increases when we allow for data abstraction through compound data (109-10)
+
+  * The example also shows why...
+
+    > [...] it is important that our programming language provide the ability to manipulate compound objects directly: **Without this, there is no way for a procedure such as `linear-combination` to pass its arguments along to `add` and `mul` without having to know their detailed structure**.
+
+* Outline of the chapter (111-2)
+
+  * Implement the rational-number arithmetic system given above as an example, as a way into the discussion of compound data and data abstractoion
+
+    * A main point of discussion here is **abstraction as a technique for coping with complexity**
+
+      * Will also talk about establishing **abstraction barriers** between different parts of a program
+
+  * A discussion of how forming compound data requires that the programming language have some kind of "glue" so that data objects can be combined to form more complex data objects
+
+    * In Scheme, **procedures can play the role of this "glue", so that no special "data" operations are required**
+
+      * (A point about how this further blurs the distinction between "procedure" and "data")
+
+    * A discussion here about **_closure_**—"that the glue we use for combining data objects should allow us to combine not only primitive data objects, but compound data objects as well" (111)
+
+    * A discussion about how compound data objects can serve as **_conventional interfaces_** for combining program modules in mix-and-match ways
+
+  * A discussion about **_symbolic expressions_**—"data whose elementary parts can be arbitrary symbols rather than only numbers" (111)
+
+    * A discussion on how the time and space requirements of processes that manipulate data can depend on how the data themselves are represented
+
+  * A discussion about **_generic operations_** which can handle many different types of data, whose implementation arises from the need of working with data that may be represented differently by different parts of the program
+
+    * A discussion of maintaining modularity in the presence of generic expressions using **_data-directed programming_** "as a technique that allows individual data representations to be designed in isolation and then combined _additively_ (i.e., without modification)" (112)
+
 ### 2.1 Introduction to Data Abstraction (pp. 112-132)
 
 ### 2.2 Hierarchical Data and the Closure Property (pp. 132-192)
