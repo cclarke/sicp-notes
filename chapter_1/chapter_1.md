@@ -2452,7 +2452,34 @@ July 2019
     ;Value: 1.0001861673128096e-4
     ```
 
-
 * Exercises 1.46
 
-  * [TODO]
+  * Define `iterative-improve` as follows:
+
+    ```scheme
+    (define (iterative-improve good-enough? improve)
+      (lambda (guess)
+        (define (iter x)
+          (if (good-enough? x)
+               x
+               (iter (improve x))))
+         (iter guess)))
+    ```
+
+    (Also in general: note how here we basically defined a new formal parameter to `iterative-improve` _on the fly_—the `guess` parameter (because `iterative-improve` gets recursively called, and in its recursive call it's applied to an argument— namely`(improve guess)`). Is this like a general design pattern?)
+
+    Let's now define `sqrt` in terms of `iterative-improve`:
+
+    ```scheme
+    (define (sqrt x)
+      (define tolerance 0.0001)
+      (define (square x) (* x x))
+      (define (close-enough? guess x)
+        (< (abs (- (square guess) x))
+           tolerance))
+      (define (improve guess x)
+        (average guess (/ x guess)))
+      (define (average a b)
+        (/ (+ a b) 2))
+      ((iterative-improve (lambda (y) (close-enough? y x)) (lambda (y) (improve y x))) 1.0))
+    ```
