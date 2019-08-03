@@ -80,6 +80,42 @@ August 2019
 
 ##### Pairs (115-6)
 
+* Scheme provides a compound structure called a **_pair_, which is constructed using the primitive procedure `cons`** (115)
+
+  > This procedure [`cons`] takes two arguments and returns a compound data object that contains the two arguments as parts.
+
+  * `cons` stands for "construct" (115n2)
+
+  * Can extract the parts of a given pair using the **primitive procedures `car` and `cdr`**
+
+    * `car` stands for "Contents of Address part of Register" (115n2)
+
+    * `cdr` (pronounced "could-er") stands for "Contents of Decrement part of Register" (115n2)
+
+    * e.g., (115)
+
+      ```scheme
+      (define x (cons 1 2))
+
+      (car x)
+
+      ;Value: 1
+
+      (cdr x)
+
+      ;Value: 2
+      ```
+
+  * `cons` can be used to define pairs whose elements are pairs, etc.
+
+* Pairs (given that we can combine them) end up being a powerful, general-purpose building block to create many kinds of complex data structures (116)
+
+  * Moreover, (116)
+
+    > The single compound-data primitive _pair_, implemented by the procedures `cons`, `car`, and `cdr`, is the only glue we need.
+
+  * Data objects constructed from pairs are called **_list-structured_ data**  
+
 ##### Representing rational numbers (116-8)
 
 #### 2.1.2 Abstraction Barriers (118-122)
