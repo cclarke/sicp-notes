@@ -76,6 +76,12 @@ August 2019
 
 #### 2.1.1 Example: Arithmetic Operations for Rational Numbers (113-118)
 
+* The note about **_wishful thinking_** as a powerful strategy of synthesis (in the context of constructors and selectors for rational numbers)
+
+##### Pairs (115-6)
+
+##### Representing rational numbers (116-8)
+
 #### 2.1.2 Abstraction Barriers (118-122)
 
 #### 2.1.3 What is Meant by Data? (122-126)
