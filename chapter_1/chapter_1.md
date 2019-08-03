@@ -2544,4 +2544,4 @@ July 2019
     ;Value: 1.2587228743052672
     ```
 
-    (This implementation will still suffer from issues arising in the absence of average damping, but the implementation above illustrates the general point. Average damping could be incorporated by making use of the `average-damp` procedure defined in exercise 1.45, and passing `(average-damp f)` to `iterative-improve` as opposed to `f` above.)
+    (This implementation will still suffer from issues arising in the absence of average damping, but the implementation illustrates the general point. Average damping could be incorporated by making use of the `average-damp` procedure defined in exercise 1.45, and passing `(average-damp f)` to `iterative-improve` as opposed to `f` above.)
