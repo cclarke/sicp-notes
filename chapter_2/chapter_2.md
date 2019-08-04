@@ -136,6 +136,20 @@ August 2019
 
 #### 2.1.2 Abstraction Barriers (118-122)
 
+* Underlying idea of data abstraction (118)
+
+  > In general, **the underlying idea of data abstraction is to identify for each type of data object a basic set of operations in terms of which all manipulations of data objects of that type will be expressed, _and then to use only those operations in manipulating the data_** [emphasis added].
+
+* **_abstraction barriers_** isolate different "levels" of the system (119)
+
+  > At each level, the barrier separates the programs (above) that use the data abstraction from the programs (below) that implement the data abstraction.
+
+  * Maintaining abstraction barriers helps users not have to think about **implementation details** of lower levels of abstraction
+
+  * Another note (121)
+
+    > Constraining the dependence on the representation to a few interface procedures helps us design programs as well as modify them, because it allows us to maintain the flexibility to consider alternate implementations.
+
 ##### Exercise (121-2)
 
 * Exercise 2.2
