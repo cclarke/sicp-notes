@@ -198,7 +198,7 @@ August 2019
       (display ")"))
     ```
 
-    And now let's test it out:
+    And now let's test out what we've implemented:
 
     ```scheme
     (define a (make-point 1 2))
