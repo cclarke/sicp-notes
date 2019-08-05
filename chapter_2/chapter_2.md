@@ -154,7 +154,88 @@ August 2019
 
 * Exercise 2.2
 
-  * [TODO]
+  * We'll have the following definitions:
+
+    ```scheme
+    (define (make-segment point-a point-b)
+      (cons point-a point-b))
+    ```
+
+    ```scheme
+    (define (start-segment segment)
+      (car segment))
+    ```
+
+    ```scheme
+    (define (end-segment segment)
+      (cdr segment))
+    ```
+
+    ```scheme
+    (define (make-point x y)
+      (cons x y))
+    ```
+
+    ```scheme
+    (define (x-point point)
+      (car point))
+    ```
+
+    ```scheme
+    (define (y-point point)
+      (cdr point))
+    ```
+
+    And define the `print-point` procedure presented in the text on pg. 121-2
+
+    ```scheme
+    (define (print-point p)
+      (newline)
+      (display "(")
+      (display (x-point p))
+      (display ",")
+      (display (y-point p))
+      (display ")"))
+    ```
+
+    And now let's test it out:
+
+    ```scheme
+    (define a (make-point 1 2))
+    ;Value: a
+
+    (x-point a)
+    ;Value: 1
+
+    (y-point a)
+    ;Value: 2
+
+    (define b (make-point 3 4))
+    ;Value: b
+
+    (x-point b)
+    ;Value: 3
+
+    (y-point b)
+    ;Value: 4
+
+    (print-point a)
+    (1,2)
+    ;Unspecified return value
+
+    (print-point b)
+    (3,4)
+    ;Unspecified return value
+
+    (define seg (make-segment a b))
+    ;Value: seg
+
+    (start-segment seg)
+    ;Value: (1 . 2)
+
+    (end-segment seg)
+    ;Value: (3 . 4)
+    ```
 
 * Exercise 2.3
 
