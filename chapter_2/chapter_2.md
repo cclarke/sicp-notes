@@ -186,6 +186,17 @@ August 2019
       (cdr point))
     ```
 
+    ```scheme
+    (define (midpoint-segment segment)
+      (let ((x1 (x-point (start-segment segment)))
+            (y1 (y-point (start-segment segment)))
+            (x2 (x-point (end-segment segment)))
+            (y2 (y-point (end-segment segment)))
+            (avg (lambda (a b) (/ (+ a b) 2.0))))
+           (make-point (avg x1 x2)
+                       (avg y1 y2))))
+    ```
+
     And define the `print-point` procedure presented in the text on pg. 121-2
 
     ```scheme
@@ -235,11 +246,18 @@ August 2019
 
     (end-segment seg)
     ;Value: (3 . 4)
+
+    (define midpoint (midpoint-segment seg))
+    ;Value: midpoint
+
+    (print-point midpoint)
+    (2.,3.)
+    ;Unspecified return value
     ```
 
 * Exercise 2.3
 
-  * [TODO]
+  *
 
 #### 2.1.3 What is Meant by Data? (122-126)
 
