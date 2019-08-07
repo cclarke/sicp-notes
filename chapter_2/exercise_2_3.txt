@@ -10,7 +10,7 @@
 
 (define (sqrt x)
   (define tolerance 0.0001)
-  (define (square x) (* x ex))
+  (define (square x) (* x x))
   (define (close-enough? guess x)
     (< (abs (- (square guess) x))
        tolerance))
@@ -26,10 +26,10 @@
 ;;    "the end of segment-A is the start of segment-B"
 
 ;; Define a procedure for checking if two segments are perpendicular to one another
-;; The following must be true of the inputs:
+;; (using the Pythagorean Theorem). The following must be true of the inputs:
 ;;    "the end of A is the start of B"
-(define (perp A B)
-  (define tolerance 1e-14) ; does this (in general) need to be the same as the tolerance in the sqrt procedure?
+(define (perp? A B)
+  (define tolerance 2e-4) ; does this (in general) need to be on the same order of magnitude as tolerance in the sqrt procedure?
   (define (square x) (* x x))
   (define (seg-length seg)
     (let ((dx (- (x-point (start-segment seg)) (x-point (end-segment seg))))
@@ -43,29 +43,32 @@
 
 ;; Implement a rectangle representation based on
 ;; perpendicular line segments that share a vertex
-;; coercing to fit the constraint:
-;;    "the end of segment-A is the start of segment-B"
+;; coercing to fit the constraint: "the end of segment-A is the start of segment-B"
+;; (so that the perp procedure can be used)
 (define (make-rectangle seg-A seg-B)
   (let ((A-start (start-segment seg-A))
         (A-end (end-segment seg-A))
         (B-start (start-segment seg-B))
         (B-end (end-segment seg-B)))
     (cond ((equal? A-start B-start)
-              (let ((A (make-segment A-end A-start)))
-                (if (perp A B) (cons A B))))
+              (let ((A (make-segment A-end A-start))
+                    (B seg-B))
+                (if (perp? A B) (cons A B))))
            ((equal? A-start B-end)
               (let ((A (make-segment A-end A-start))
                     (B (make-segment B-end B-start)))
-                (if (perp A B) (cons A B))))
+                (if (perp? A B) (cons A B))))
            ((equal? A-end B-start)
-                (if (perp A B) (cons A B)))
+              (let ((A seg-A)
+                    (B seg-B))
+                (if (perp? A B) (cons A B))))
            ((equal? A-end B-end)
-              (let ((B (make-segment B-end B-start)))
-                (if (perp A B) (cons A B)))))))
+              (let ((A seg-A)
+                    (B (make-segment B-end B-start)))
+                (if (perp? A B) (cons A B)))))))
 
 ;; Now test
 (define A (make-segment (make-point 0 1) (make-point 0 0)))
-
 (define B (make-segment (make-point 0 0) (make-point 1 0)))
 
 (make-rectangle A B)
@@ -73,5 +76,8 @@
 (make-rectangle B A)
 
 (define C (make-segment (make-point 1 1) (make-point 0 0)))
+(define D (make-segment (make-point 1 -1) (make-point 0 0)))
 
-(define D (make-segment (make-point -1 -1) (make-point 0 0)))
+(make-rectangle C D)
+
+(make-rectangle D C)
