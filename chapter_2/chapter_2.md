@@ -257,50 +257,7 @@ August 2019
 
 * Exercise 2.3
 
-  * Implement our rectangle representation first in terms of points:
-
-    ```scheme
-    (define (make-rectangle vertex-a vertex-b vertex-c vertex-d)
-      (cons vertex-a
-            (cons vertex-b
-                  (cons vertex-c
-                        vertex-d))))
-    ```
-
-    ```scheme
-    (define (select-vertex rect n)
-      (cond ((= n 1) (car rect))
-            ((= n 2) (car (cdr rect)))
-            ((= n 3) (car (cdr (cdr rect))))
-            ((= n 4) (cdr (cdr (cdr rect))))))
-    ```
-
-    Let's define a procedure `is-rectangle?` to make sure that the things we're creating are actually rectangles:
-
-    ```scheme
-    (define (is-rectangle? rect)
-      define)
-    ```
-
-    ```scheme
-    (define a (make-point 0 0))
-    (define b (make-point 0 1))
-    (define c (make-point 1 1))
-    (define d (make-point 1 0))
-    (define rect (make-rectangle a b c d))
-
-    (select-vertex rect 1)
-    ;Value: (0 . 0)
-
-    (select-vertex rect 2)
-    ;Value: (0 . 1)
-
-    (select-vertex rect 3)
-    ;Value: (1 . 1)
-
-    (select-vertex rect 4)
-    ;Value: (1 . 0)
-    ```
+  * See [exercise_2_3.txt](exercise_2_3.txt) for one implementation. TODO: Implement a second way.
 
 #### 2.1.3 What is Meant by Data? (122-126)
 

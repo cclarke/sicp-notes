@@ -24,6 +24,10 @@
 ;; perpendicular line segments that share a vertex
 ;; coercing to fit the constraint:
 ;;    "the end of segment-A is the start of segment-B"
+(define (seg-length seg)
+  (let ((dx (- (x-point (start-segment seg)) (x-point (end-segment seg))))
+        (dy (- (y-point (start-segment seg)) (y-point (end-segment seg)))))
+    (sqrt (+ (square dx) (square dy)))))
 
 ;; Define a procedure for checking if two segments are perpendicular to one another
 ;; (using the Pythagorean Theorem). The following must be true of the inputs:
@@ -31,10 +35,6 @@
 (define (perp? A B)
   (define tolerance 2e-4) ; does this (in general) need to be on the same order of magnitude as tolerance in the sqrt procedure?
   (define (square x) (* x x))
-  (define (seg-length seg)
-    (let ((dx (- (x-point (start-segment seg)) (x-point (end-segment seg))))
-          (dy (- (y-point (start-segment seg)) (y-point (end-segment seg)))))
-      (sqrt (+ (square dx) (square dy)))))
   (let ((C (make-segment (start-segment A) (end-segment B))))
     (< (abs (- (square (seg-length C))
                (+ (square (seg-length A))
@@ -66,6 +66,22 @@
               (let ((A seg-A)
                     (B (make-segment B-end B-start)))
                 (if (perp? A B) (cons A B)))))))
+
+(define (start-side rectangle)
+  (car rectangle))
+
+(define (end-side rectangle)
+  (cdr rectangle))
+
+(define (perimeter rectangle)
+  (let ((s1 (start-side rectangle))
+        (s2 (end-side rectangle)))
+    (* 2 (+ (seg-length s1) (seg-length s2)))))
+
+(define (area rectangle)
+  (let ((s1 (start-side rectangle))
+        (s2 (end-side rectangle)))
+    (* (seg-length s1) (seg-length s2))))
 
 ;; Now test
 (define A (make-segment (make-point 0 1) (make-point 0 0)))
