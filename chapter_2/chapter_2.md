@@ -261,6 +261,22 @@ August 2019
 
 #### 2.1.3 What is Meant by Data? (122-126)
 
+* A perspective from the authors (123)
+
+  > In general, we can think of data as defined by some collection of selectors and constructors, together wish specified conditions that these procedures must fulfill in order to be a valid representation.
+
+  * (123n5 has some links to literature that might be interesting to follow up on
+
+* The example of the alternative implementation of `cons`, `car`, and `cdr` using only procedures and no "real" data structures (124)
+
+  * All this is given an exact specification of the following desideratum about `cons`, `car`, and `cdr` and how they relate to one another: (123)
+
+    > [...] for any objects `x` and `y`, if `z` is `(cons x y)` then `(car z)` is `x` and `(cdr z)` is `y`.
+
+* A general word about the procedural implementation above: **_message passing_** (125)
+
+  > This example also demonstrates that the ability to manipulate procedures as objects automatically provides the ability to represent compound data. This may seem a curiosity now, but procedural representations of data will play a central role in our programming repertoire. **This style of programming is often called _message passing_, and we will be using it as a basic tool in Chapter 3 when we address the issues of modeling and simulation.**
+
 #### 2.1.4 Extended Exercise: Interval Arithmetic (126-132)
 
 ### 2.2 Hierarchical Data and the Closure Property (pp. 132-192)
