@@ -277,6 +277,21 @@ August 2019
 
   > This example also demonstrates that the ability to manipulate procedures as objects automatically provides the ability to represent compound data. This may seem a curiosity now, but procedural representations of data will play a central role in our programming repertoire. **This style of programming is often called _message passing_, and we will be using it as a basic tool in Chapter 3 when we address the issues of modeling and simulation.**
 
+
+##### Exercises (125-6)
+
+* Exercise 2.4
+
+  * [TODO]
+
+* Exercise 2.5
+
+  * [TODO]
+
+* Exercise 2.6
+
+  * [TODO]
+
 #### 2.1.4 Extended Exercise: Interval Arithmetic (126-132)
 
 ### 2.2 Hierarchical Data and the Closure Property (pp. 132-192)
