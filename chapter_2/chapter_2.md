@@ -325,7 +325,57 @@ August 2019
 
 * Exercise 2.5
 
-  * [TODO]
+  * Define `cons`:
+
+    ```scheme
+    (define (cons a b)
+      (* (expt 2 a) (expt 3 b)))
+    ```
+
+    Now define a helper procedure `find-prime-factor-exponent`:
+
+    ```scheme
+    (define (find-prime-factor-exponent n prime-factor)
+      (if (not (= (remainder n prime-factor) 0))
+          0
+          (+ 1 (find-prime-factor-exponent (/ n prime-factor) prime-factor))))
+    ```
+
+    Define `car`:
+
+    ```scheme
+    (define (car x)
+      (find-prime-factor-exponent x 2))
+    ```
+
+    Define `cdr`:
+
+    ```scheme
+    (define (cdr x)
+      (find-prime-factor-exponent x 3))
+    ```
+
+    Test it out:
+
+    ```scheme
+    (car (cons 0 0 ))
+    ;Value: 0
+
+    (cdr (cons 0 0))
+    ;Value: 0
+
+    (car (cons 1 2))
+    ;Value: 1
+
+    (cdr (cons 1 2))
+    ;Value: 2
+
+    (car (cons 30 72))
+    ;Value: 30
+
+    (cdr (cons 30 72))
+    ;Value: 72
+    ```
 
 * Exercise 2.6
 
