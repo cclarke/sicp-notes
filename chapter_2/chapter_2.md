@@ -282,7 +282,46 @@ August 2019
 
 * Exercise 2.4
 
-  * [TODO]
+  * Consider the evaluation of
+
+    ```scheme
+    (car (cons x y))
+    ```
+
+    using the substitution model:
+
+    ```scheme
+    (car (cons x y))
+
+    ((cons x y) (lambda (p q) p))
+
+    ((lambda (m) (m x y)) (lambda (p q) p))
+
+    ((lambda (p q) p) x y)
+
+    x
+    ```
+
+    Now consider a definition of a `cdr` procedure as follows:
+
+    ```scheme
+    (define (cdr z)
+      (z (lambda (p q) q)))
+    ```
+
+    The expression `(cdr (cons x y))` would evolve as follows:
+
+    ```scheme
+    (cdr (cons x y))
+
+    ((cons x y) (lambda (p q) q))
+
+    ((lambda (m) (m x y)) (lambda (p q) q))
+
+    ((lambda (p q) q) x y)
+
+    y
+    ```
 
 * Exercise 2.5
 
