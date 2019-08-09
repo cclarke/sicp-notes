@@ -379,7 +379,106 @@ August 2019
 
 * Exercise 2.6
 
-  * [TODO]
+  * It seems like we need to be careful about not conflating/confusing the names of various similarly-named formal parameters in the procedures and `lambda` special forms at play. With this in mind let's work out what `one` would be, given that it's equivalent to `(add-1 zero)`:
+
+    ```scheme
+    (add-1 zero)
+    (add-1 (lambda (f) (lambda (x) x)))
+    (lambda (f2) (lambda (x2) (f2 (((lambda (f1) (lambda (x1) x1)) f2) x2))))
+    (lambda (f2) (lambda (x2) (f2 ((lambda (x1) x1) x2))))
+    (lambda (f2) (lambda (x2) (f2 x2)))
+    ```
+
+    So we define `one` as follows:
+
+    ```scheme
+    (define one (lambda (f) (lambda (x) (f x))))
+    ```
+
+    And now let's derive a representation for `two` by considering `(add-1 one)`:
+
+    ```scheme
+    (add-1 one)
+    (add-1 (lambda (f) (lambda (x) (f x))))
+    ((lambda (f) (lambda (x) (f ((n f) x)))) (lambda (f) (lambda (x) (f x))))
+    (lambda (f2) (lambda (x2) (f2 (((lambda (f1) (lambda (x1) (f1 x1))) f2) x2))))
+    (lambda (f2) (lambda (x2) (f2 (f2 x2))))
+    ```
+
+    So we can define `two` as follows:
+
+    ```scheme
+    (define two (lambda (f) (lambda (x) (f (f x)))))
+    ```
+
+    Let's now define our `plus` procedure (we call it `plus` instead of `+`):
+
+    ```scheme
+    (define (plus n m)
+      (lambda (f) (lambda (x) ((m f) ((n f) x)))))
+    ```
+
+    Now let's look at some examples of one particular application of the procedures we've defined, that make use of numerals and a procedure called `succ` that implements a numeric successor function (and makes use of ordinary numerical addition with the built-in `+` operator):
+
+    ```scheme
+    (define (succ x) (+ x 1))
+    ```
+
+    Note first that we can recover some ordinary numeric meaning from the Church numerals we've implemented as follows:
+
+    ```scheme
+    ((zero succ) 0)
+    ;Value: 0
+
+    ((zero succ) 1)
+    ;Value: 1
+
+    ((one succ) 0)
+    ;Value: 1
+
+    ((two succ) 0)
+    ;Value: 2
+
+    (((add-1 one) succ) 0)
+    ;Value: 2
+
+    (((add-1 two) succ) 0)
+    ;Value: 3
+    ```
+
+    Let's now look at how our `plus` procedure functions in this context:
+
+    ```scheme
+    (((plus zero zero) succ) 0)
+    ;Value: 0
+
+    (((plus zero one) succ) 0)
+    ;Value: 1
+
+    (((plus zero two) succ) 0)
+    ;Value: 2
+
+    (((plus one two) succ) 0)
+    ;Value: 3
+
+    (((plus two two) succ) 0)
+    ;Value: 4
+
+    (((plus two two) succ) 1)
+    ;Value: 5
+
+    (((plus two two) succ) 2)
+    ;Value: 6
+
+    (((plus (add-1 two) (add-1 zero)) succ) 3)
+    ;Value: 7
+
+    (((plus (add-1 two) (add-1 (add-1 zero))) succ) 3)
+    ;Value: 8
+
+    (((plus (add-1 two) (add-1 (add-1 zero))) succ) 4)
+    ;Value: 9
+    ```
 
 #### 2.1.4 Extended Exercise: Interval Arithmetic (126-132)
 
