@@ -482,6 +482,56 @@ August 2019
 
 #### 2.1.4 Extended Exercise: Interval Arithmetic (126-132)
 
+##### Exercises (128-32)
+
+* Exercise 2.7
+
+  * Define our selectors:
+
+    ```scheme
+    (define (lower-bound interval)
+      (min (car interval) (cdr interval)))
+
+    (define (upper-bound interval)
+      (max (car interval) (cdr interval)))
+    ```
+
+* Exercise 2.8
+
+  * [TODO]
+
+* Exercise 2.9
+
+  * [TODO]
+
+* Exercise 2.10
+
+  * [TODO]
+
+* Exercise 2.11
+
+  * [TODO]
+
+* Exercise 2.12
+
+  * [TODO]
+
+* Exercise 2.13
+
+  * [TODO]
+
+* Exercise 2.14
+
+  * [TODO]
+
+* Exercise 2.15
+
+  * [TODO]
+
+* Exercise 2.16
+
+  * [TODO]
+
 ### 2.2 Hierarchical Data and the Closure Property (pp. 132-192)
 
 ### 2.3 Symbolic Data (pp. 192-229)
