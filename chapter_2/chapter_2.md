@@ -1,4 +1,4 @@
----
+<!-- --- -->
 fontfamily: libertinus
 ---
 
@@ -498,7 +498,15 @@ August 2019
 
 * Exercise 2.8
 
-  * [TODO]
+  * Define an interval subtraction procedure called `sub-interval`:
+
+    ```scheme
+    (define (sub-interval x y)
+      (make-interval (- (lower-bound x) (lower-bound y))
+                     (- (upper-bound x) (upper-bound y))))
+    ```
+
+    (Alternatively, we could define `sub-interval` in terms of `add-interval`.)
 
 * Exercise 2.9
 
