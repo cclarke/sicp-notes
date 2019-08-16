@@ -1,4 +1,4 @@
-<!-- --- -->
+---
 fontfamily: libertinus
 ---
 
@@ -510,7 +510,14 @@ August 2019
 
 * Exercise 2.9
 
-  * [TODO]
+  * Define a procedure `interval-width` to compute the width of an interval:
+
+    ```scheme
+    (define (interval-width x)
+      (/ (- (upper-bound x) (lower-bound x)) 2.0))
+    ```
+
+    We can see that the width of an interval that is the sum or difference of two intervals can be expressed as a function of the widths of those two intervals, because both
 
 * Exercise 2.10
 
